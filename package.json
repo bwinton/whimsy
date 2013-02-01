@@ -1,17 +1,24 @@
 {
-  "name": "addon",
-  "fullName": "addon",
-  "description": "a basic add-on",
-  "author": "",
-  "license": "MPL 2.0",
-  "version": "0.1",
-  "contributors": [],
-  "repository": {},
-  "bugs": {},
-  "preferences": [],
-  "amd": {},
-  "volo": {
-    "baseUrl": "data/js/lib",
-    "dependencies": {}
-  }
+    "preferences": [{
+        "name": "urlbar",
+        "title": "Urlbar placeholder",
+        "description": "Add whimsical sayings before you type in a url.",
+        "type": "bool",
+        "value": true
+    }],
+    "name": "whimsy", 
+    "license": "MPL 2.0", 
+    "author": "", 
+    "volo": {
+        "dependencies": {}, 
+        "baseUrl": "data/js/lib"
+    }, 
+    "bugs": {}, 
+    "amd": {}, 
+    "repository": {}, 
+    "version": "0.1", 
+    "contributors": [], 
+    "fullName": "whimsy", 
+    "id": "jid1-6mUPixNFCjAgkg", 
+    "description": "Add some whimsy to your Firefox!"
 }
