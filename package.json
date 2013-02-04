@@ -1,11 +1,16 @@
 {
-    "preferences": [{
-        "name": "urlbar",
-        "title": "Urlbar placeholder",
-        "description": "Add whimsical sayings before you type in a url.",
-        "type": "bool",
-        "value": true
-    }],
+    "preferences": [
+        {"name": "urlbar",
+         "title": "Urlbar placeholder",
+         "description": "Add whimsical sayings before you type in a url.",
+         "type": "bool",
+         "value": true},
+        {"name": "ponami",
+         "title": "Ponami code in About Firefox",
+         "description": "I think you know what to type.",
+         "type": "bool",
+         "value": true}
+    ],
     "name": "whimsy", 
     "license": "MPL 2.0", 
     "author": "", 
