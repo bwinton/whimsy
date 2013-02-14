@@ -22,7 +22,7 @@
     "dependencies": {
       "micropilot": "github:gregglind/micropilot/master"
     },
-    "baseUrl": "data/js/lib"
+    "baseUrl": "lib"
   },
   "icon": "data/whimsycorn-48.png",
   "icon64": "data/whimsycorn-64.png",
