@@ -1,0 +1,10 @@
+{
+  "name": "micropilot",
+  "fullName": "micropilot",
+  "description": "Microscopic test pilot",
+  "id":  "micropilot@ux.mozilla.org",
+  "author": "Gregg Lind",
+  "license": "MPL 2.0",
+  "version": "0.3",
+  "main":  "micropilot"
+}
