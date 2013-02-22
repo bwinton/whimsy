@@ -13,6 +13,13 @@
       "description": "I think you know what to type.",
       "type": "bool",
       "value": true
+    },
+    {
+      "name": "newtabicons",
+      "title": "Newtab icons",
+      "description": "Add better icons for the new tab page.",
+      "type": "bool",
+      "value": true
     }
   ],
   "name": "whimsy",
