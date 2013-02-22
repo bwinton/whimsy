@@ -7,11 +7,26 @@
 
 "use strict";
 
-var thumbnails = window.document.getElementsByClassName('newtab-thumbnail');
-dump("\n\nBW: Got " + thumbnails.length + " thumbnails!\n");
+let thumbnails = window.document.getElementsByClassName('newtab-thumbnail');
 
-for (var i = 0; i < thumbnails.length; ++i) {
-  var thumbnail = thumbnails[i];
-  dump(self.options[i] + "\n");
-  thumbnail.style.backgroundImage = 'url("' + self.options[i] + '")';
+for (let i = 0; i < thumbnails.length; ++i) {
+  let thumb = thumbnails[i];
+  let newPreview = 'url("' + self.options.thumbs[i] + '")';
+  let oldPreview = thumb.style.backgroundImage;
+
+  if (self.options.showAlways) {
+    thumb.style.backgroundImage = newPreview;
+  } else {
+    thumb.addEventListener("mouseover", function(el, image) {
+      return function() {
+        el.style.backgroundImage = image;
+      }
+    }(thumb, newPreview));
+
+    thumb.addEventListener("mouseout", function(el, image) {
+      return function() {
+        el.style.backgroundImage = image;
+      }
+    }(thumb, oldPreview));
+  }
 }
