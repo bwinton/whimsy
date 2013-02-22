@@ -19,19 +19,19 @@
       "title": "Newtab icons",
       "description": "Add better icons for the new tab page.",
       "type": "menulist",
-      "value": 0,
+      "value": 1,
       "options": [
         {
           "value": "0",
-          "label": "On (always)"
+          "label": "Off"
         },
         {
           "value": "1",
-          "label": "On (hover only)"
+          "label": "Always On"
         },
         {
           "value": "2",
-          "label": "Off"
+          "label": "Hover to Show"
         }
       ]
     }

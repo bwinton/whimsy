@@ -11,10 +11,10 @@ let thumbnails = window.document.getElementsByClassName('newtab-thumbnail');
 
 for (let i = 0; i < thumbnails.length; ++i) {
   let thumb = thumbnails[i];
-  let newPreview = 'url("' + self.options["thumbs"][i] + '")';
+  let newPreview = 'url("' + self.options.thumbs[i] + '")';
   let oldPreview = thumb.style.backgroundImage;
 
-  if (self.options["showAlways"]) {
+  if (self.options.showAlways) {
     thumb.style.backgroundImage = newPreview;
   } else {
     thumb.addEventListener("mouseover", function(el, image) {
