@@ -18,8 +18,22 @@
       "name": "newtabicons",
       "title": "Newtab icons",
       "description": "Add better icons for the new tab page.",
-      "type": "bool",
-      "value": true
+      "type": "menulist",
+      "value": 0,
+      "options": [
+        {
+          "value": "0",
+          "label": "On (always)"
+        },
+        {
+          "value": "1",
+          "label": "On (hover only)"
+        },
+        {
+          "value": "2",
+          "label": "Off"
+        }
+      ]
     }
   ],
   "name": "whimsy",

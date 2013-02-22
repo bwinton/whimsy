@@ -11,18 +11,22 @@ let thumbnails = window.document.getElementsByClassName('newtab-thumbnail');
 
 for (let i = 0; i < thumbnails.length; ++i) {
   let thumb = thumbnails[i];
-  let newPreview = 'url("' + self.options[i] + '")';
+  let newPreview = 'url("' + self.options["thumbs"][i] + '")';
   let oldPreview = thumb.style.backgroundImage;
 
-  thumb.addEventListener("mouseover", function(el, image) {
-    return function() {
-      el.style.backgroundImage = image;
-    }
-  }(thumb, newPreview));
+  if (self.options["showAlways"]) {
+    thumb.style.backgroundImage = newPreview;
+  } else {
+    thumb.addEventListener("mouseover", function(el, image) {
+      return function() {
+        el.style.backgroundImage = image;
+      }
+    }(thumb, newPreview));
 
-  thumb.addEventListener("mouseout", function(el, image) {
-    return function() {
-      el.style.backgroundImage = image;
-    }
-  }(thumb, oldPreview));
+    thumb.addEventListener("mouseout", function(el, image) {
+      return function() {
+        el.style.backgroundImage = image;
+      }
+    }(thumb, oldPreview));
+  }
 }
