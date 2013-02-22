@@ -19,6 +19,18 @@ module.exports = {
           v.spawn('git', ['clone', module[2], module[1]]);
         }
       }
+    },
+  },
+
+  deploy: {
+    run: function (d, v, namedArgs, appName) {
+      v.sequence([
+        ['cfx', 'xpi',
+          '--update-link', 'https://people.mozilla.com/~bwinton/whimsy/whimsy.xpi',
+          '--update-url', 'https://people.mozilla.com/~bwinton/whimsy/whimsy.update.rdf'],
+        [v, 'copyFile', 'whimsy.xpi', '/Volumes/people.mozilla.com/public_html/whimsy/whimsy.xpi'],
+        [v, 'copyFile', 'whimsy.update.rdf', '/Volumes/people.mozilla.com/public_html/whimsy/whimsy.update.rdf']
+      ], {useConsole: !namedArgs.quiet});
     }
   }
 };
