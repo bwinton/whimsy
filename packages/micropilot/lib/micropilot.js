@@ -507,6 +507,8 @@ let Micropilot = exports.Micropilot = Class({
     * @return promise
     */
   ezupload: function(options){
+    myprefs.logtoconsole && console.log("willezupload!");
+
     let { promise, resolve } = defer();
     let {url,maxtries,interval,killaddon:killpref} = options;
     let that = this;
@@ -567,6 +569,7 @@ let Micropilot = exports.Micropilot = Class({
     let { promise, resolve } = defer();
     let uploadid = options.uploadid || uu(); // specific to the upload
     this.data().then(function(data){
+      myprefs.logtoconsole && console.log("willupload:", JSON.stringify(data));
       let payload = {events:data};
       payload.userdata = snoop();
       payload.ts = Date.now();
