@@ -15,11 +15,11 @@
       "value": true
     },
     {
-      "name": "newtabicons",
+      "name": "newtabicons2",
       "title": "Newtab icons",
       "description": "Add better icons for the new tab page.",
       "type": "menulist",
-      "value": 1,
+      "value": 2,
       "options": [
         {
           "value": "0",
@@ -27,11 +27,11 @@
         },
         {
           "value": "1",
-          "label": "Always On"
+          "label": "Hover to Show"
         },
         {
           "value": "2",
-          "label": "Hover to Show"
+          "label": "Always On"
         }
       ]
     }
