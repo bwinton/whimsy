@@ -14,6 +14,7 @@ for (let i = 0; i < thumbnails.length; ++i) {
   let newPreview = 'url("' + self.options.thumbs[i] + '")';
   let oldPreview = thumb.style.backgroundImage;
 
+  thumb.setAttribute('data-iconurl', self.options.thumbs[i]);
   if (self.options.showAlways) {
     thumb.style.backgroundImage = newPreview;
   } else {
