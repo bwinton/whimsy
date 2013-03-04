@@ -1,5 +1,5 @@
-This project has the following setup:
+An add-on to try some things to make Firefox a little more fun…  Whimsitunities, if you will.
 
-* .addon-sdk/ - a submodule containing the addon-sdk.
-* More stuff to be added later.
+[Install the add-on](https://people.mozilla.com/~bwinton/whimsy/whimsy.xpi)
 
+Pull requests to add whimsperiments or fix issues are more than welcome!
