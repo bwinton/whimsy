@@ -7,10 +7,18 @@
 
 "use strict";
 
-let thumbnails = window.document.getElementsByClassName('newtab-thumbnail');
+let thumbnails = window.document.getElementsByClassName('newtab-cell');
 
 for (let i = 0; i < thumbnails.length; ++i) {
   let thumb = thumbnails[i];
+  let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
+  if (thumbs.length) {
+    thumb = thumbs[0];
+  } else {
+    thumb.style.backgroundSize = "cover";
+    thumb.style.backgroundRepeat = "no-repeat";
+    thumb.style.backgroundClip = "paddingBox";
+  }
   let newPreview = 'url("' + self.options.thumbs[i] + '")';
   let oldPreview = thumb.style.backgroundImage;
 
