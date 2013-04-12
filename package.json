@@ -36,6 +36,9 @@
       ]
     }
   ],
+  "permissions": {
+    "private-browsing": true
+  },
   "name": "whimsy",
   "license": "MPL 2.0",
   "author": "",
