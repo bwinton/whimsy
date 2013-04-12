@@ -3,7 +3,7 @@
   indent:2, maxerr:50, devel:true, node:true, boss:true, white:true,
   globalstrict:true, nomen:false, newcap:true*/
 
-/*global self:true, addon:true, dump:true */
+/*global self:true, addon:true */
 
 "use strict";
 
