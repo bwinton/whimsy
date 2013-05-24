@@ -34,6 +34,13 @@
           "label": "Always On"
         }
       ]
+    },
+    {
+      "name": "register",
+      "title": "Register",
+      "description": "Register your copy of WhimsyPro today!",
+      "type": "string",
+      "value": false
     }
   ],
   "permissions": {
@@ -41,7 +48,7 @@
   },
   "name": "whimsy",
   "license": "MPL 2.0",
-  "author": "",
+  "author": "Blake Winton <bwinton@mozilla.com>",
   "icon": "data/whimsycorn-48.png",
   "icon64": "data/whimsycorn-64.png",
   "bugs": {},
@@ -49,7 +56,7 @@
   "repository": {},
   "version": "0.7",
   "contributors": [],
-  "fullName": "whimsy",
+  "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
-  "description": "Add some whimsy to your Firefox!"
+  "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)"
 }
