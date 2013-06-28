@@ -10,7 +10,7 @@
     {
       "name": "ponami",
       "title": "Ponami code in About Firefox",
-      "description": "I think you know what to type.",
+      "description": "↑ ↑ ↓ ↓ ← → ← → b a",
       "type": "bool",
       "value": true
     },
@@ -54,7 +54,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "0.8",
+  "version": "0.9",
   "contributors": [],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
