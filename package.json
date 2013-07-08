@@ -36,6 +36,13 @@
       ]
     },
     {
+      "name": "searchbar",
+      "title": "Search Privacy",
+      "description": "Clear the search bar when you switch tabs.",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "register",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
