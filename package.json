@@ -15,6 +15,13 @@
       "value": true
     },
     {
+      "name": "hamburglar",
+      "title": "The Hamburglar!",
+      "description": "The Hamburglar™ steals your menu button.",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "newtabicons2",
       "title": "Newtab icons",
       "description": "Add better icons for the new tab page.",
