@@ -17,7 +17,7 @@
     {
       "name": "hamburglar",
       "title": "The Hamburglar!",
-      "description": "Hamburglar steals your panel menu button for hamburgers",
+      "description": "The Hamburglar™ steals your menu button.",
       "type": "bool",
       "value": true
     },
