@@ -110,3 +110,5 @@ I can't believe Firefox isn't 64-bit yet! I'm leaving you for Chrome!
 Duke (duke duke) Duke of URL (duke duke) Duke of URL (duke duke) Duke of URRRRLLL!
 Web surfing is hard, let's go shopping. Screw that, shopping is hard, let's do matrix multiplication!
 swirly donut? at least it's not the dreaded read admiral.
+Bug 923495: Add the "Google Chrome" feature to Firefox
+I just love Mozzarella Foxfire!
