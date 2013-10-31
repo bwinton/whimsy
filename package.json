@@ -54,11 +54,18 @@
       "value": true
     },
     {
-      "name": "register",
+      "name": "nope",
+      "title": "Release the Kraken!",
+      "description": "Check out about:nope",
+      "type": "bool",
+      "value": true
+    },
+    {
+      "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
       "type": "string",
-      "value": false
+      "value": ""
     }
   ],
   "permissions": {
@@ -72,7 +79,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "0.15",
+  "version": "0.16",
   "contributors": [],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
