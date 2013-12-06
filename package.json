@@ -19,7 +19,7 @@
       "title": "The Hamburglar!",
       "description": "The Hamburglar™ steals your menu button.",
       "type": "bool",
-      "value": true
+      "value": false
     },
     {
       "name": "newtabicons2",
@@ -79,7 +79,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "0.16",
+  "version": "0.17",
   "contributors": [],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
