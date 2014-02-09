@@ -1,4 +1,4 @@
-An add-on to try some things to make Firefox a little more fun…  Whimsitunities, if you will.
+An add-on to try some things to make Firefox a little more fun…  Whimsytunities, if you will.
 
 [Install the add-on](https://people.mozilla.com/~bwinton/whimsy/whimsy.xpi)
 
