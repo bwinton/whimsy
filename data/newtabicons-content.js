@@ -71,6 +71,16 @@ function updateThumbnails() {
       thumb.removeEventListener("mouseout", mouseOutListener);
     }
   }
+
+  window.addEventListener("mousemove", function (e) {
+    var thumbnails = window.document.getElementsByClassName('newtab-cell');
+    for (let i = 0; i < thumbnails.length; ++i) {
+      let thumb = thumbnails[i];
+      let top = Math.round(e.clientY * 100 / window.innerHeight);
+      let left = Math.round(e.clientX * 100 / window.innerWidth);
+      thumb.style.backgroundPosition = "top " + top + "% left " + left + "%";
+    }
+  });
 }
 
 function addThumbnails(thumbnails) {
