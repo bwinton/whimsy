@@ -76,6 +76,11 @@ function updateThumbnails() {
     var thumbnails = window.document.getElementsByClassName('newtab-cell');
     for (let i = 0; i < thumbnails.length; ++i) {
       let thumb = thumbnails[i];
+      let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
+      if (thumbs.length) {
+        thumb = thumbs[0];
+      }
+
       let top = Math.round(e.clientY * 100 / window.innerHeight);
       let left = Math.round(e.clientX * 100 / window.innerWidth);
       thumb.style.backgroundPosition = "top " + top + "% left " + left + "%";
