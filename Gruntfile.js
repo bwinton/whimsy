@@ -78,6 +78,32 @@ module.exports = function(grunt){
     }
   });
 
+  grunt.registerTask('fennec', 'Run a testing version of the add-on on Android', function() {
+    var done = this.async();
+    var run = grunt.util.spawn({
+      cmd: 'cfx',
+      args: ['run',
+        '-a',
+        'fennec-on-device',
+        '-b',
+        '/usr/local/bin/adb',
+        '--mobile-app',
+        'fennec',
+        '--force-mobile'
+      ]
+    }, function spawned(error, result, code) {
+      if (code != 0) {
+        console.log(error);
+      }
+      done();
+    });
+    if (run.stderr) {
+      run.stderr.on('data', function (buf) {
+        grunt.log.ok(buf);
+      })
+    }
+  });
+
   grunt.registerTask('test', 'Run the tests for the add-on', function() {
     var done = this.async();
     var run = grunt.util.spawn({
