@@ -27,6 +27,26 @@ function updateThumbnails() {
     return;
   }
 
+  var now = new Date();
+  var nowString = now.getDate() + '-' + now.getMonth() + '-' + now.getFullYear();
+  var birthday = document.getElementById('happy-birthday');
+  if (nowString === '28-3-2014' && !birthday) {
+    var grid = window.document.getElementById('newtab-horizontal-margin');
+    var birthday = document.createElement('div');
+    birthday.id = 'happy-birthday';
+    birthday.style.fontSize = '5vw';
+    birthday.style.fontWeight = 'bold';
+    birthday.style.display = 'flex';
+    birthday.style.justifyContent = 'center';
+
+    var birthdayText = document.createElement('div');
+    birthdayText.textContent = 'Happy Birthday Felix George!'
+    birthday.appendChild(birthdayText);
+
+    grid.parentNode.insertBefore(birthday, grid);
+    return;
+  }
+
   var toggle = document.getElementById("newtab-toggle");
   switch (self.options.showPref) {
   case 0:
