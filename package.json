@@ -68,6 +68,13 @@
       "value": true
     },
     {
+      "name": "invincible",
+      "title": "Invincible",
+      "description": "Paint flashing makes you invincible",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
