@@ -61,9 +61,9 @@
       "value": true
     },
     {
-      "name": "coin",
-      "title": "Coin",
-      "description": "Collect a coin when you bookmark",
+      "name": "mario",
+      "title": "Mario",
+      "description": "Mario mode",
       "type": "bool",
       "value": true
     },
