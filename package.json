@@ -61,6 +61,13 @@
       "value": true
     },
     {
+      "name": "coin",
+      "title": "Coin",
+      "description": "Collect a coin when you bookmark",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
