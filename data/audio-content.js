@@ -2,7 +2,12 @@ let kUrlAudioMap = {};
 
 self.port.on('play-once', function(aPayload) {
   let url = aPayload.url;
-  new Audio(url).play();
+  let audio = new Audio(url);
+  audio.addEventListener("ended", function onAudioEnded(aEvent) {
+    audio.removeEventListener("ended", onAudioEnded);
+    audio = null;
+  });
+  audio.play();
 });
 
 self.port.on('play-loop', function(aPayload) {
