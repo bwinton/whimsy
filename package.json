@@ -61,6 +61,13 @@
       "value": true
     },
     {
+      "name": "mario",
+      "title": "Mario",
+      "description": "Mario mode",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
