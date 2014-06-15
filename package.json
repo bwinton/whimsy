@@ -86,8 +86,16 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "0.25.0",
-  "contributors": [],
+  "version": "0.26.0",
+  "contributors": [
+    "Bryan Clark",
+    "Mike Conley",
+    "Andrew Halberstadt",
+    "JosiahOne",
+    "Potch",
+    "Fred Wenzel",
+    "Jonathan Wilde"
+  ],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
   "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)",
