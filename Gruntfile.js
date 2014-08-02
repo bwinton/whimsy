@@ -34,19 +34,19 @@ module.exports = function(grunt){
 
     grunt.file.copy('whimsy.xpi',
                     '/Volumes/People/public_html/whimsy/whimsy.xpi',
-                    {"encoding": null});
+                    {'encoding': null});
     grunt.log.ok('Copied XPI…');
     grunt.file.copy('whimsy.update.rdf',
                     '/Volumes/People/public_html/whimsy/whimsy.update.rdf',
-                    {"encoding": null});
+                    {'encoding': null});
     grunt.log.ok('Copied update.rdf…');
     grunt.file.copy('index.html',
                     '/Volumes/People/public_html/whimsy/index.html',
-                    {"encoding": null});
+                    {'encoding': null});
     grunt.log.ok('Copied index.html…');
     grunt.file.copy('wheeeeee.png',
                     '/Volumes/People/public_html/whimsy/wheeeeee.png',
-                    {"encoding": null});
+                    {'encoding': null});
     grunt.log.ok('Copied wheeeeee.png…');
   });
 

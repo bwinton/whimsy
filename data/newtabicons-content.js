@@ -10,7 +10,7 @@
 
 /*global self:false, gAllPages:false */
 
-"use strict";
+'use strict';
 
 function mouseOverListener(e) {
   e.target.style.backgroundImage = e.target.dataset.newPreview;
@@ -27,20 +27,20 @@ function updateThumbnails() {
     return;
   }
 
-  var toggle = document.getElementById("newtab-toggle");
+  var toggle = document.getElementById('newtab-toggle');
   if (toggle) {
     switch (self.options.showPref) {
     case 0:
-      toggle.setAttribute("title", "Show whimsical thumbnails on hover");
+      toggle.setAttribute('title', 'Show whimsical thumbnails on hover');
       break;
     case 1:
-      toggle.setAttribute("title", "Always show whimsical thumbnails");
+      toggle.setAttribute('title', 'Always show whimsical thumbnails');
       break;
     case 2:
-      toggle.setAttribute("title", "Hide the new tab page");
+      toggle.setAttribute('title', 'Hide the new tab page');
       break;
     case 3:
-      toggle.setAttribute("title", "Show the plain new tab page");
+      toggle.setAttribute('title', 'Show the plain new tab page');
     }
   }
 
@@ -56,28 +56,28 @@ function updateThumbnails() {
       switch (self.options.showPref) {
       case 0:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
-        thumb.removeEventListener("mouseover", mouseOverListener);
-        thumb.removeEventListener("mouseout", mouseOutListener);
+        thumb.removeEventListener('mouseover', mouseOverListener);
+        thumb.removeEventListener('mouseout', mouseOutListener);
         break;
       case 1:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
-        thumb.addEventListener("mouseover", mouseOverListener);
-        thumb.addEventListener("mouseout", mouseOutListener);
+        thumb.addEventListener('mouseover', mouseOverListener);
+        thumb.addEventListener('mouseout', mouseOutListener);
         break;
       case 2:
         thumb.style.backgroundImage = thumb.dataset.newPreview;
-        thumb.removeEventListener("mouseover", mouseOverListener);
-        thumb.removeEventListener("mouseout", mouseOutListener);
+        thumb.removeEventListener('mouseover', mouseOverListener);
+        thumb.removeEventListener('mouseout', mouseOutListener);
         break;
       case 3:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
-        thumb.removeEventListener("mouseover", mouseOverListener);
-        thumb.removeEventListener("mouseout", mouseOutListener);
+        thumb.removeEventListener('mouseover', mouseOverListener);
+        thumb.removeEventListener('mouseout', mouseOutListener);
       }
     };
   }
 
-  window.addEventListener("mousemove", function (e) {
+  window.addEventListener('mousemove', function (e) {
     var thumbnails = window.document.getElementsByClassName('newtab-cell');
     for (let i = 0; i < thumbnails.length; ++i) {
       let thumb = thumbnails[i];
@@ -90,7 +90,7 @@ function updateThumbnails() {
       let left = Math.round(e.clientX * 100 / window.innerWidth);
       for (let i = 0; i < thumbs.length; i++) {
         let thumb = thumbs[i];
-        thumb.style.backgroundPosition = "top " + top + "% left " + left + "%";
+        thumb.style.backgroundPosition = 'top ' + top + '% left ' + left + '%';
       }
     }
   });
@@ -112,9 +112,9 @@ function addThumbnails(thumbnails) {
     }
     for (let j = 0; j < thumbs.length; j++) {
       let thumb = thumbs[j];
-      thumb.style.backgroundSize = "cover";
-      thumb.style.backgroundRepeat = "no-repeat";
-      thumb.style.backgroundClip = "paddingBox";
+      thumb.style.backgroundSize = 'cover';
+      thumb.style.backgroundRepeat = 'no-repeat';
+      thumb.style.backgroundClip = 'paddingBox';
       thumb.dataset.newPreview = 'url("' + self.options.thumbs[i] + '")';
       thumb.dataset.oldPreview = thumb.style.backgroundImage;
       thumb.dataset.thumburl = self.options.thumbs[i];
@@ -124,7 +124,7 @@ function addThumbnails(thumbnails) {
 }
 
 function overrideToggle() {
-  var toggle = document.getElementById("newtab-toggle");
+  var toggle = document.getElementById('newtab-toggle');
   if (toggle) {
     // Tell the add-on when the toggle is clicked…
     toggle.onclick = function () {
