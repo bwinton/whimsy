@@ -68,6 +68,13 @@
       "value": true
     },
     {
+      "name": "private_felipe",
+      "title": "Private Felipe",
+      "description": "An even more secretive private browsing mode.",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
@@ -86,7 +93,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "1.0.1",
+  "version": "1.0.2",
   "contributors": [
     "Bryan Clark",
     "Mike Conley",
@@ -94,7 +101,8 @@
     "JosiahOne",
     "Potch",
     "Fred Wenzel",
-    "Jonathan Wilde"
+    "Jonathan Wilde",
+    "Justin Dolske"
   ],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
