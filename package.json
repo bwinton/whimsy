@@ -75,6 +75,13 @@
       "value": true
     },
     {
+      "name": "notify",
+      "title": "Site notifications",
+      "description": "Let websites know you’ve installed Whimsy",
+      "type": "string",
+      "value": "[\\\"*.mozilla.org\\\", \\\"*.chilloutandwatchsomecatgifs.com\\\"]"
+    },
+    {
       "name": "register2",
       "title": "Register",
       "description": "Register your copy of WhimsyPro today!",
