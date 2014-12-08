@@ -23,6 +23,19 @@ module.exports = function(grunt){
     });
   });
 
+  grunt.registerTask('amo', 'Build the add-on for AMO', function() {
+    var done = this.async();
+    grunt.util.spawn({
+      cmd: 'cfx',
+      args: ['xpi']
+    }, function spawned(error, result, code) {
+      grunt.log.ok(result);
+      grunt.log.ok('Add-on built.');
+      done();
+    });
+  });
+
+
   grunt.registerTask('copy', 'Copy the files to the server.', function() {
     this.requires(['build']);
 
@@ -61,7 +74,7 @@ module.exports = function(grunt){
       cmd: 'cfx',
       args: ['run',
         '-b',
-        '/Applications/Local/FirefoxNightly.app',
+        '/Applications/Local/Firefox.app',
         '-p',
         'profile.testing'
       ]
@@ -110,7 +123,7 @@ module.exports = function(grunt){
       cmd: 'cfx',
       args: ['test',
         '-b',
-        '/Applications/Local/FirefoxNightly.app'
+        '/Applications/Local/Firefox.app'
       ]
     }, function spawned(error, result, code) {
       done();
