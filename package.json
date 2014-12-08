@@ -100,7 +100,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "1.0.4",
+  "version": "1.0.5",
   "contributors": [
     "Bryan Clark",
     "Mike Conley",
@@ -109,7 +109,8 @@
     "Potch",
     "Fred Wenzel",
     "Jonathan Wilde",
-    "Justin Dolske"
+    "Justin Dolske",
+    "Paul McLanahan"
   ],
   "fullName": "Whimsy Pro",
   "id": "jid1-6mUPixNFCjAgkg",
