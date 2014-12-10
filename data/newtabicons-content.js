@@ -139,5 +139,7 @@ function overrideToggle() {
   });
 }
 
-addThumbnails(window.document.getElementsByClassName('newtab-cell'));
-overrideToggle();
+window.addEventListener('load', function () {
+    addThumbnails(window.document.getElementsByClassName('newtab-cell'));
+  overrideToggle();
+}, false);
