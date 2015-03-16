@@ -75,6 +75,13 @@
       "value": true
     },
     {
+      "name": "lionel",
+      "title": "Lionel mode",
+      "description": "Hello? Is it me you're looking for?",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "notify",
       "title": "Site notifications",
       "description": "Let websites know you’ve installed Whimsy",
