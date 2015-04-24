@@ -3,17 +3,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/*jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true,
-  strict:true, undef:true, unused:true, curly:true, browser:true, white:true,
-  moz:true, esnext:false, indent:2, maxerr:50, devel:true, node:true, boss:true,
-  globalstrict:true, nomen:false, newcap:false */
+/*eslint-env browser */
 
 let kUrlAudioMap = {};
 
 self.port.on('play-once', function(aPayload) {
   let url = aPayload.url;
   let audio = new Audio(url);
-  audio.addEventListener('ended', function onAudioEnded(aEvent) {
+  audio.addEventListener('ended', function onAudioEnded() {
     audio.removeEventListener('ended', onAudioEnded);
     audio = null;
   });

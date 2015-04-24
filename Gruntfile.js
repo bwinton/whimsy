@@ -1,7 +1,14 @@
+/*! This Source Code Form is subject to the terms of the Mozilla Public
+* License, v. 2.0. If a copy of the MPL was not distributed with this
+* file, You can obtain one at http://mozilla.org/MPL/2.0/.
+*/
+
+/*eslint-env node */
+
 module.exports = function(grunt){
 
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: grunt.file.readJSON('package.json')
   });
 
   /* Build and deploy tasks. */
@@ -16,7 +23,7 @@ module.exports = function(grunt){
         '--update-url',
         'https://people.mozilla.com/~bwinton/whimsy/whimsy.update.rdf'
       ]
-    }, function spawned(error, result, code) {
+    }, function spawned(error, result) {
       grunt.log.ok(result);
       grunt.log.ok('Add-on built.');
       done();
@@ -28,7 +35,7 @@ module.exports = function(grunt){
     grunt.util.spawn({
       cmd: 'cfx',
       args: ['xpi']
-    }, function spawned(error, result, code) {
+    }, function spawned(error, result) {
       grunt.log.ok(result);
       grunt.log.ok('Add-on built.');
       done();
@@ -37,6 +44,7 @@ module.exports = function(grunt){
 
 
   grunt.registerTask('copy', 'Copy the files to the server.', function() {
+    var done = this.async();
     this.requires(['build']);
 
     if (!grunt.file.exists('/Volumes/People/public_html/whimsy')) {
@@ -79,7 +87,7 @@ module.exports = function(grunt){
         'profile.testing'
       ]
     }, function spawned(error, result, code) {
-      if (code != 0) {
+      if (code !== 0) {
         console.log(error);
       }
       done();
@@ -87,7 +95,7 @@ module.exports = function(grunt){
     if (run.stderr) {
       run.stderr.on('data', function (buf) {
         grunt.log.ok(buf);
-      })
+      });
     }
   });
 
@@ -105,7 +113,7 @@ module.exports = function(grunt){
         '--force-mobile'
       ]
     }, function spawned(error, result, code) {
-      if (code != 0) {
+      if (code !== 0) {
         console.log(error);
       }
       done();
@@ -113,7 +121,7 @@ module.exports = function(grunt){
     if (run.stderr) {
       run.stderr.on('data', function (buf) {
         grunt.log.ok(buf);
-      })
+      });
     }
   });
 
@@ -125,13 +133,13 @@ module.exports = function(grunt){
         '-b',
         '/Applications/Local/Firefox.app'
       ]
-    }, function spawned(error, result, code) {
+    }, function spawned() {
       done();
     });
     if (run.stderr) {
       run.stderr.on('data', function (buf) {
         grunt.log.ok(buf);
-      })
+      });
     }
   });
 

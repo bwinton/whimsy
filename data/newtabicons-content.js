@@ -3,12 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/*jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true,
-  strict:true, undef:true, unused:true, curly:true, browser:true, white:true,
-  moz:true, esnext:false, indent:2, maxerr:50, devel:true, node:true, boss:true,
-  globalstrict:true, nomen:false, newcap:false */
-
-/*global self:false, gAllPages:false */
+/* eslint-env browser */
+/* globals gAllPages:false */
 
 'use strict';
 
@@ -18,6 +14,24 @@ function mouseOverListener(e) {
 
 function mouseOutListener(e) {
   e.target.style.backgroundImage = e.target.dataset.oldPreview;
+}
+
+function mouseMoveListener (e) {
+  var thumbnails = window.document.getElementsByClassName('newtab-cell');
+  for (let i = 0; i < thumbnails.length; ++i) {
+    let thumb = thumbnails[i];
+    let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
+    if (!thumbs.length) {
+      thumbs = [thumb];
+    }
+
+    let top = Math.round(e.clientY * 100 / window.innerHeight);
+    let left = Math.round(e.clientX * 100 / window.innerWidth);
+    for (let i = 0; i < thumbs.length; i++) {
+      let thumb = thumbs[i];
+      thumb.style.backgroundPosition = 'top ' + top + '% left ' + left + '%';
+    }
+  }
 }
 
 function updateThumbnails() {
@@ -74,26 +88,10 @@ function updateThumbnails() {
         thumb.removeEventListener('mouseover', mouseOverListener);
         thumb.removeEventListener('mouseout', mouseOutListener);
       }
-    };
+    }
   }
 
-  window.addEventListener('mousemove', function (e) {
-    var thumbnails = window.document.getElementsByClassName('newtab-cell');
-    for (let i = 0; i < thumbnails.length; ++i) {
-      let thumb = thumbnails[i];
-      let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
-      if (!thumbs.length) {
-        thumbs = [thumb];
-      }
-
-      let top = Math.round(e.clientY * 100 / window.innerHeight);
-      let left = Math.round(e.clientX * 100 / window.innerWidth);
-      for (let i = 0; i < thumbs.length; i++) {
-        let thumb = thumbs[i];
-        thumb.style.backgroundPosition = 'top ' + top + '% left ' + left + '%';
-      }
-    }
-  });
+  window.addEventListener('mousemove', mouseMoveListener);
 }
 
 function addThumbnails(thumbnails) {
