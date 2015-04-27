@@ -34,18 +34,18 @@ if (app.is('Firefox')) {
   // Yeah, so this needs to be here because the add-on sdk resolves
   // requirements when the add-on is packaged, not at run-time.  :P
   let grantAuthority = function() { // eslint-disable-line no-unused-vars
-    require('./button');
-    require('./clear-search');
-    require('./dinohome');
-    require('./newtabicons');
-    require('./nope');
-    require('./notify');
-    require('./ponami');
-    require('./throbber');
-    require('./urlbar');
-    require('./hamburger');
-    require('./mario');
-    require('./private-felipe');
+    require('./lib/button');
+    require('./lib/clear-search');
+    require('./lib/dinohome');
+    require('./lib/newtabicons');
+    require('./lib/nope');
+    require('./lib/notify');
+    require('./lib/ponami');
+    require('./lib/throbber');
+    require('./lib/urlbar');
+    require('./lib/hamburger');
+    require('./lib/mario');
+    require('./lib/private-felipe');
   };
 } else if (app.is('Fennec')) {
   featureNames = {
@@ -54,17 +54,17 @@ if (app.is('Firefox')) {
   };
 
   let grantAuthority = function() { // eslint-disable-line no-unused-vars
-    require('./nope');
-    require('./panelicons');
+    require('./lib/nope');
+    require('./lib/panelicons');
   };
 }
 
 for (let name in featureNames) {
   try {
-    features[name] = require('./' + name);
+    features[name] = require('./lib/' + name);
   } catch (e) {
-    // console.log('Could not require ./' + name + '.');
-    // console.exception(e)
+    // console.log('Could not require ./lib/' + name + '.');
+    // console.exception(e);
   }
 }
 
@@ -74,7 +74,7 @@ var registerListener = function () {
   telemetry = {
     urlbar: +prefs.prefs.urlbar,
     ponami: +prefs.prefs.ponami,
-    hamburglar: +prefs.prefs.hamburglar,
+    hamburglar: +prefs.prefs.hamburglar2,
     newtabicons: +prefs.prefs.newtabicons2,
     searchbar: +prefs.prefs.searchbar,
     nope: +prefs.prefs.nope,
@@ -85,6 +85,7 @@ var registerListener = function () {
     notify: +(prefs.prefs.notify.trim() !== '["*.mozilla.org", "*.chilloutandwatchsomecatgifs.com"]')
   };
 };
+
 
 exports.main = function () {
   for (let name in features) {

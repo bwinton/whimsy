@@ -16,7 +16,7 @@ module.exports = function(grunt){
   grunt.registerTask('build', 'Build the add-on', function() {
     var done = this.async();
     grunt.util.spawn({
-      cmd: 'cfx',
+      cmd: 'jpm',
       args: ['xpi',
         '--update-link',
         'https://people.mozilla.com/~bwinton/whimsy/whimsy.xpi',
@@ -33,11 +33,16 @@ module.exports = function(grunt){
   grunt.registerTask('amo', 'Build the add-on for AMO', function() {
     var done = this.async();
     grunt.util.spawn({
-      cmd: 'cfx',
+      cmd: 'jpm',
       args: ['xpi']
     }, function spawned(error, result) {
       grunt.log.ok(result);
       grunt.log.ok('Add-on built.');
+      grunt.file.copy('jid1-6mUPixNFCjAgkg@jetpack.xpi',
+                      'whimsy.xpi',
+                      {'encoding': null});
+      grunt.file.delete('jid1-6mUPixNFCjAgkg@jetpack.xpi');
+      grunt.log.ok('Renamed XPI…');
       done();
     });
   });
@@ -79,12 +84,12 @@ module.exports = function(grunt){
   grunt.registerTask('run', 'Run a testing version of the add-on', function() {
     var done = this.async();
     var run = grunt.util.spawn({
-      cmd: 'cfx',
+      cmd: 'jpm',
       args: ['run',
-        '-b',
-        '/Applications/Local/Firefox.app',
         '-p',
-        'profile.testing'
+        './profile.testing',
+        '-b',
+        '/Applications/Local/Firefox.app'
       ]
     }, function spawned(error, result, code) {
       if (code !== 0) {
@@ -102,7 +107,7 @@ module.exports = function(grunt){
   grunt.registerTask('fennec', 'Run a testing version of the add-on on Android', function() {
     var done = this.async();
     var run = grunt.util.spawn({
-      cmd: 'cfx',
+      cmd: 'jpm',
       args: ['run',
         '-a',
         'fennec-on-device',
@@ -128,7 +133,7 @@ module.exports = function(grunt){
   grunt.registerTask('test', 'Run the tests for the add-on', function() {
     var done = this.async();
     var run = grunt.util.spawn({
-      cmd: 'cfx',
+      cmd: 'jpm',
       args: ['test',
         '-b',
         '/Applications/Local/Firefox.app'

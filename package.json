@@ -15,11 +15,25 @@
       "value": true
     },
     {
-      "name": "hamburglar",
+      "name": "hamburglar2",
       "title": "The Hamburglar!",
       "description": "The Hamburglar™ steals your menu button.",
-      "type": "bool",
-      "value": false
+      "type": "menulist",
+      "value": 0,
+      "options": [
+        {
+          "value": "0",
+          "label": "Menu button (☰)"
+        },
+        {
+          "value": "1",
+          "label": "Royale with cheese"
+        },
+        {
+          "value": "2",
+          "label": "Pancakes and syrup"
+        }
+      ]
     },
     {
       "name": "dinohome",
@@ -86,7 +100,7 @@
       "title": "Site notifications",
       "description": "Let websites know you’ve installed Whimsy",
       "type": "string",
-      "value": "[\\\"*.mozilla.org\\\", \\\"*.chilloutandwatchsomecatgifs.com\\\"]"
+      "value": "[\"*.mozilla.org\", \"*.chilloutandwatchsomecatgifs.com\"]"
     },
     {
       "name": "register2",
@@ -107,7 +121,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "1.1.0",
+  "version": "1.1.1",
   "contributors": [
     "Bryan Clark",
     "Mike Conley",
@@ -121,8 +135,12 @@
     "Selena Deckelmann",
     "Krupa Raj"
   ],
-  "fullName": "Whimsy Pro",
-  "id": "jid1-6mUPixNFCjAgkg",
+  "title": "Whimsy Pro",
+  "engines": {
+    "firefox": ">=33.0a1",
+    "fennec": ">=33.0a1"
+  },
+  "id": "jid1-6mUPixNFCjAgkg@jetpack",
   "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)",
   "devDependencies": {
     "grunt": "~0.4.2"
