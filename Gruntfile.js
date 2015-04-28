@@ -13,23 +13,6 @@ module.exports = function(grunt){
 
   /* Build and deploy tasks. */
 
-  grunt.registerTask('build', 'Build the add-on', function() {
-    var done = this.async();
-    grunt.util.spawn({
-      cmd: 'jpm',
-      args: ['xpi',
-        '--update-link',
-        'https://people.mozilla.com/~bwinton/whimsy/whimsy.xpi',
-        '--update-url',
-        'https://people.mozilla.com/~bwinton/whimsy/whimsy.update.rdf'
-      ]
-    }, function spawned(error, result) {
-      grunt.log.ok(result);
-      grunt.log.ok('Add-on built.');
-      done();
-    });
-  });
-
   grunt.registerTask('amo', 'Build the add-on for AMO', function() {
     var done = this.async();
     grunt.util.spawn({
@@ -38,10 +21,12 @@ module.exports = function(grunt){
     }, function spawned(error, result) {
       grunt.log.ok(result);
       grunt.log.ok('Add-on built.');
-      grunt.file.copy('jid1-6mUPixNFCjAgkg@jetpack.xpi',
-                      'whimsy.xpi',
+      var pkg = grunt.config.get('pkg')
+      var xpiName = pkg.id + '-' + pkg.version + '.xpi';
+      grunt.file.copy(xpiName,
+                      'web/whimsy.xpi',
                       {'encoding': null});
-      grunt.file.delete('jid1-6mUPixNFCjAgkg@jetpack.xpi');
+      grunt.file.delete(xpiName);
       grunt.log.ok('Renamed XPI…');
       done();
     });
@@ -50,33 +35,29 @@ module.exports = function(grunt){
 
   grunt.registerTask('copy', 'Copy the files to the server.', function() {
     var done = this.async();
-    this.requires(['build']);
+    this.requires(['amo']);
 
     if (!grunt.file.exists('/Volumes/People/public_html/whimsy')) {
-      grunt.log.error('Missing Directory!');
+      grunt.log.error('Missing remote directory!  Please launch ExpanDrive.');
       done(false);
       return;
     }
 
-    grunt.file.copy('whimsy.xpi',
+    grunt.file.copy('web/whimsy.xpi',
                     '/Volumes/People/public_html/whimsy/whimsy.xpi',
                     {'encoding': null});
     grunt.log.ok('Copied XPI…');
-    grunt.file.copy('whimsy.update.rdf',
-                    '/Volumes/People/public_html/whimsy/whimsy.update.rdf',
-                    {'encoding': null});
-    grunt.log.ok('Copied update.rdf…');
-    grunt.file.copy('index.html',
+    grunt.file.copy('web/index.html',
                     '/Volumes/People/public_html/whimsy/index.html',
                     {'encoding': null});
     grunt.log.ok('Copied index.html…');
-    grunt.file.copy('wheeeeee.png',
+    grunt.file.copy('web/wheeeeee.png',
                     '/Volumes/People/public_html/whimsy/wheeeeee.png',
                     {'encoding': null});
     grunt.log.ok('Copied wheeeeee.png…');
   });
 
-  grunt.registerTask('deploy', 'Build the add-on and copy the files.', ['build', 'copy']);
+  grunt.registerTask('deploy', 'Build the add-on and copy the files.', ['amo', 'copy']);
 
 
   /* Testing tasks. */

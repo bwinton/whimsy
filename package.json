@@ -116,8 +116,6 @@
   "name": "whimsy",
   "license": "MPL 2.0",
   "author": "Blake Winton <bwinton@mozilla.com>",
-  "icon": "data/whimsycorn-96.png",
-  "icon64": "data/whimsycorn-128.png",
   "bugs": {},
   "amd": {},
   "repository": {},
