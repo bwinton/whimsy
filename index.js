@@ -101,6 +101,7 @@ exports.main = function () {
   registerListener();
 
   if (UITelemetry.enabled) {
+    UITelemetry.removeSimpleMeasureFunction('whimsy');
     UITelemetry.addSimpleMeasureFunction('whimsy', function () {
       return telemetry;
     });
@@ -108,7 +109,7 @@ exports.main = function () {
 
 };
 
-exports.onUnload = function () {
+exports.onUnload = function (reason) {
   prefs.removeListener('register2', registerListener);
 
   for (let name in features) {
@@ -120,7 +121,7 @@ exports.onUnload = function () {
     }
   }
 
-  if (UITelemetry.enabled) {
+  if (UITelemetry.enabled && reason !== 'shutdown') {
     UITelemetry.removeSimpleMeasureFunction('whimsy');
   }
 };
