@@ -25,9 +25,13 @@ globalstrict:true, nomen:false, newcap:false */
     return promise;
   };
 
-  d3.jsonPromise = function (url) {
+  d3.jsonPromise = function (url, github) {
     var promise = $.Deferred();
-    d3.json(url).get(function (error, data) {
+    var json = d3.json(url);
+    if (github) {
+      json.header('Accept', 'application/vnd.github.3.raw')
+    }
+    json.get(function (error, data) {
       if (data) {
         promise.resolve(data);
       } else {
