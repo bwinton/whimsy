@@ -1,0 +1,31 @@
+{
+  "predef": [
+    "Components",
+    "Services",
+    "Task",
+    "UITelemetry",
+    "URLSearchParams",
+    "XPCOMUtils"
+  ],
+  "forin": true,
+  "noarg": true,
+  "noempty": true,
+  "eqeqeq": true,
+  "bitwise": false,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "curly": false,
+  "browser": true,
+  "white": true,
+  "moz": true,
+  "esnext": true,
+  "indent": 2,
+  "maxerr": 50,
+  "devel": true,
+  "node": true,
+  "boss": true,
+  "globalstrict": true,
+  "nomen": false,
+  "newcap": false
+}
