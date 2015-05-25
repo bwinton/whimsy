@@ -14,7 +14,8 @@
   var getSubItems = function (item) {
     var elem = d3.select(this);
     console.log(elem, item);
-    elem.text(`${item.title}:`);
+    elem.append('div').classed('title', true)
+      .text(`${item.title}:`);
     elem.attr('title', `${item.description}`);
 
     if (item.type === 'bool') {

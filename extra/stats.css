@@ -10,11 +10,19 @@
   opacity: 0;
 }
 
-.value {
-  margin-left: 15px;
+.item > div {
   display: inline-block;
-  padding: 1px 3px;
+}
+
+.item > .title {
+  width: 20em;
+}
+
+.value {
+  margin: 1px 15px;
+  padding: 0px 3px;
   border-radius: 3px;
+  border: 1px solid #99d8c9;
   transition: background-color 150ms ease-in-out;
 }
 
