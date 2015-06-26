@@ -8,9 +8,10 @@ body::after {
   font-family: 'Lucida Grande', Arial, sans-serif;
   position: absolute;
   bottom: 1em;
-  right: 1em;
+  left: 50%;
+  margin-left: -9.5em;
 }
 
-body {
-  height: 95%;
+html {
+  height: 100%;
 }
