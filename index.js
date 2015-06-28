@@ -17,6 +17,7 @@ var featureNames = {};
 
 if (app.is('Firefox')) {
   featureNames = {
+    'blank': true,
     'button': true,
     'clear-search': true,
     'dinohome': true,
@@ -34,6 +35,7 @@ if (app.is('Firefox')) {
   // Yeah, so this needs to be here because the add-on sdk resolves
   // requirements when the add-on is packaged, not at run-time.  :P
   let grantAuthority = function() { // eslint-disable-line no-unused-vars
+    require('./lib/blank');
     require('./lib/button');
     require('./lib/clear-search');
     require('./lib/dinohome');
@@ -81,6 +83,7 @@ var registerListener = function () {
     mario: +prefs.prefs.mario,
     felipe: +prefs.prefs.private_felipe,
     dinohome: +prefs.prefs.dinohome,
+    blank: +prefs.prefs.dinohome,
     register: +(prefs.prefs.register2.trim() !== ''),
     notify: +(prefs.prefs.notify.trim() !== '["*.mozilla.org", "*.chilloutandwatchsomecatgifs.com"]')
   };

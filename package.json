@@ -96,6 +96,13 @@
       "value": true
     },
     {
+      "name": "blank",
+      "title": "Intentional Blankness",
+      "description": "Be one with the void.",
+      "type": "bool",
+      "value": true
+    },
+    {
       "name": "notify",
       "title": "Site notifications",
       "description": "Let websites know you’ve installed Whimsy",
@@ -119,7 +126,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "1.1.2",
+  "version": "1.1.3",
   "contributors": [
     "Bryan Clark",
     "Mike Conley",
@@ -132,12 +139,13 @@
     "Paul McLanahan",
     "Selena Deckelmann",
     "Krupa Raj",
-    "Vladan Djeric"
+    "Vladan Djeric",
+    "Ashley G Williams"
   ],
   "title": "Whimsy Pro",
   "engines": {
-    "firefox": ">=33.0a1",
-    "fennec": ">=33.0a1"
+    "firefox": ">=34.0a1",
+    "fennec": ">=34.0a1"
   },
   "id": "jid1-6mUPixNFCjAgkg@jetpack",
   "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)",
