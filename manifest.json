@@ -10,14 +10,13 @@
   "applications": {
     "gecko": {
       "id": "jid1-6mUPixNFCjAgkg@jetpack",
-      "strict_min_version": "34.0a1"
+      "strict_min_version": "40.0.0"
     }
   },
 
-  "content_scripts": [
-    {
-      "matches": ["*://*.mozilla.org/*"],
-      "js": ["borderify.js"]
+  "content_scripts": [{
+      "matches": ["*://*.mozilla.org/*", "*://*.chilloutandwatchsomecatgifs.com/*"],
+      "js": ["notify.js"]
     }
   ]
 }
