@@ -1,8 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "whimsy",
-  "version": "1.1.4",
-  "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)",
+
+  "default_locale": "en",
+  "icons": {
+    "48": "icon.png",
+    "64": "icon64.png"
+  },
 
   "applications": {
     "gecko": {
