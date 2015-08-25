@@ -1,0 +1,41 @@
+{
+  "name": "whimsy",
+  "license": "MPL 2.0",
+  "version": "1.1.4",
+  "shortName": "Whimsy Pro",
+  "description": "Add some Whimsy to your Firefox!  (Now with WebExtension support!)",
+  "author": "Blake Winton <bwinton@latte.ca>",
+  "contributors": [
+    "Bryan Clark",
+    "Mike Conley",
+    "Andrew Halberstadt",
+    "JosiahOne",
+    "Potch",
+    "Fred Wenzel",
+    "Jonathan Wilde",
+    "Justin Dolske",
+    "Paul McLanahan",
+    "Selena Deckelmann",
+    "Krupa Raj",
+    "Vladan Djeric",
+    "Ashley G Williams"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bwinton/whimsy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bwinton/whimsy/issues"
+  },
+  "keywords": [
+    "whimsy",
+    "webextension",
+    "addon"
+  ],
+  "homepage": "https://github.com/bwinton/whimsy",
+  "devDependencies": {
+    "gulp-config-sync": "^1.0.2",
+    "gulp-zip": "3.0.2",
+    "merge-stream": "^1.0.0"
+  }
+}
