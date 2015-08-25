@@ -5,12 +5,12 @@
 var gulp = require('gulp');
 var merge = require('merge-stream');
 var sync = require('gulp-config-sync');
-// var zip = require('gulp-zip');
-
+var zip = require('gulp-zip');
+var meta = require('./package.json');
 
 /* Variables */
 
-var sourceFiles = [];
+var sourceFiles = ['lib/*'];
 
 
 /* Tasks. */
@@ -28,7 +28,7 @@ gulp.task('other', function() {
   var js = gulp.src(sourceFiles);
 
   merge(manifest, js)
-    // .pipe(zip('borderify.xpi'))
+    .pipe(zip(meta.name + '.xpi'))
     .pipe(gulp.dest('dist/'));
 });
 
