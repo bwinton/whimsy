@@ -11,6 +11,7 @@ var meta = require('./package.json');
 /* Variables */
 
 var sourceFiles = ['lib/*'];
+var imageFiles = ['images/*'];
 
 
 /* Tasks. */
@@ -26,8 +27,9 @@ gulp.task('other', function() {
       {'from': 'homepage', 'to': 'homepage_url'}
     ]}));
   var js = gulp.src(sourceFiles);
+  var images = gulp.src(imageFiles, {'base': './'});
 
-  merge(manifest, js)
+  merge(manifest, js, images)
     .pipe(zip(meta.name + '.xpi'))
     .pipe(gulp.dest('dist/'));
 });
