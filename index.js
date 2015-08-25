@@ -3,14 +3,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/* global UITelemetry:false */
-
 'use strict';
 
 var prefs = require('sdk/simple-prefs');
-var { Cu } = require('chrome');
-Cu.import('resource://gre/modules/UITelemetry.jsm');
-
+var { UITelemetry } = require('resource://gre/modules/UITelemetry.jsm');
 var app = require('sdk/system/xul-app');
 var features = {};
 var featureNames = {};

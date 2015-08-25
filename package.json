@@ -151,5 +151,6 @@
   "description": "Add some Whimsy to your Firefox!  (Pro Version, unregistered)",
   "devDependencies": {
     "grunt": "~0.4.2"
-  }
+  },
+  "multiprocessCompatible": "true"
 }
