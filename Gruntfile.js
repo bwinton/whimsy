@@ -5,6 +5,8 @@
 
 /*eslint-env node */
 
+'use strict';
+
 module.exports = function(grunt){
 
   grunt.initConfig({
@@ -21,7 +23,7 @@ module.exports = function(grunt){
     }, function spawned(error, result) {
       grunt.log.ok(result);
       grunt.log.ok('Add-on built.');
-      var pkg = grunt.config.get('pkg')
+      var pkg = grunt.config.get('pkg');
       var xpiName = pkg.id + '-' + pkg.version + '.xpi';
       grunt.file.copy(xpiName,
                       'web/whimsy.xpi',
