@@ -103,6 +103,27 @@
       "value": true
     },
     {
+      "name": "spinner",
+      "title": "Better Spinners",
+      "description": "Round and round and round and round…",
+      "type": "menulist",
+      "value": 2,
+      "options": [
+        {
+          "value": "0",
+          "label": "Regular ✳︎"
+        },
+        {
+          "value": "1",
+          "label": "Metal \\m/"
+        },
+        {
+          "value": "2",
+          "label": "Cats!"
+        }
+      ]
+    },
+    {
       "name": "notify",
       "title": "Site notifications",
       "description": "Let websites know you’ve installed Whimsy",

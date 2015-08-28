@@ -21,6 +21,7 @@ if (app.is('Firefox')) {
     'nope': true,
     'notify': true,
     'ponami': true,
+    'spinner': true,
     'throbber': true,
     'urlbar': true,
     'hamburger': true,
@@ -39,6 +40,7 @@ if (app.is('Firefox')) {
     require('./lib/nope');
     require('./lib/notify');
     require('./lib/ponami');
+    require('./lib/spinner');
     require('./lib/throbber');
     require('./lib/urlbar');
     require('./lib/hamburger');
@@ -79,7 +81,8 @@ var registerListener = function () {
     mario: +prefs.prefs.mario,
     felipe: +prefs.prefs.private_felipe,
     dinohome: +prefs.prefs.dinohome,
-    blank: +prefs.prefs.dinohome,
+    spinner: +prefs.prefs.spinner,
+    blank: +prefs.prefs.blank,
     register: +(prefs.prefs.register2.trim() !== ''),
     notify: +(prefs.prefs.notify.trim() !== '["*.mozilla.org", "*.chilloutandwatchsomecatgifs.com"]')
   };
