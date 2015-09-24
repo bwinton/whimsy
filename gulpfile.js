@@ -18,11 +18,13 @@ var zip = require('gulp-zip');
 var sourceFiles = ['lib/*'];
 var imageFiles = ['images/*'];
 var iconFiles = ['icon.png', 'icon64.png'];
+var xpiName = meta.name + '.xpi';
+var dist = 'dist/';
 
 
 /* Tasks. */
 
-gulp.task('other', function() {
+gulp.task('other', function () {
   var manifest = gulp.src('manifest.json')
     .pipe(sync({fields: [
       {'from': 'shortName', 'to': 'name'},
@@ -42,12 +44,17 @@ gulp.task('other', function() {
 
   // Firefox can handle ES6.
   merge(manifest, es, images, icons)
-    .pipe(zip(meta.name + '.xpi'))
-    .pipe(gulp.dest('dist/'));
+    .pipe(zip(xpiName))
+    .pipe(gulp.dest(dist));
 
   // Chrome needs a transpiler.
   merge(manifest, js, images, icons)
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest(dist));
+});
+
+gulp.task('deploy', ['other'], function () {
+  gulp.src(dist + xpiName)
+    .pipe(gulp.dest('/Users/bwinton/Dropbox/Public/Firefox/WebExtensions/'));
 });
 
 gulp.task('default', ['other']);

@@ -14,7 +14,9 @@
   },
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "alarms",
+    "notifications"
   ],
 
   "content_scripts": [{
@@ -33,6 +35,7 @@
       "19": "images/whimsycorn-48.png",
       "38": "images/whimsycorn-64.png"
     },
-    "default_title": "Whimsy!"
+    "default_title": "Whimsy!",
+    "default_popup": "http://chilloutandwatchsomecatgifs.com/"
   }
 }
