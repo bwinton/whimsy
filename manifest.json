@@ -16,7 +16,8 @@
   "permissions": [
     "tabs",
     "alarms",
-    "notifications"
+    "notifications",
+    "bookmarks"
   ],
 
   "content_scripts": [{
