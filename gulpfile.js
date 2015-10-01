@@ -17,7 +17,6 @@ var zip = require('gulp-zip');
 
 var sourceFiles = ['lib/*'];
 var imageFiles = ['images/*'];
-var iconFiles = ['icon.png', 'icon64.png'];
 var xpiName = meta.name + '.xpi';
 var dist = 'dist/';
 
@@ -40,15 +39,14 @@ gulp.task('other', function () {
     .pipe(babel())
     .pipe(sourcemaps.write());
   var images = gulp.src(imageFiles, {'base': './'});
-  var icons = gulp.src(iconFiles);
 
   // Firefox can handle ES6.
-  merge(manifest, es, images, icons)
+  merge(manifest, es, images)
     .pipe(zip(xpiName))
     .pipe(gulp.dest(dist));
 
   // Chrome needs a transpiler.
-  merge(manifest, js, images, icons)
+  merge(manifest, js, images)
     .pipe(gulp.dest(dist));
 });
 
