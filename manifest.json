@@ -38,9 +38,18 @@
   "browser_action": {
     "default_icon": {
       "19": "images/whimsycorn-48.png",
-      "38": "images/whimsycorn-64.png"
+      "38": "images/whimsycorn-128.png",
+
+      "16": "images/whimsycorn-18.png",
+      "48": "images/whimsycorn-48.png",
+      "128": "images/whimsycorn-128.png",
+
+      "32": "images/whimsycorn-32.png",
+      "64": "images/whimsycorn-64.png"
     },
     "default_title": "Whimsy!",
     "default_popup": "http://chilloutandwatchsomecatgifs.com/"
-  }
+  },
+
+  "devtools_page": "devtools.html"
 }

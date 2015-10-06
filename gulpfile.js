@@ -16,6 +16,7 @@ var zip = require('gulp-zip');
 /* Variables */
 
 var sourceFiles = ['lib/*'];
+var htmlFiles = ['html/*'];
 var imageFiles = ['images/*'];
 var soundFiles = ['sounds/*'];
 var xpiName = meta.name + '.xpi';
@@ -39,16 +40,17 @@ gulp.task('other', function () {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write());
+  var html = gulp.src(htmlFiles);
   var images = gulp.src(imageFiles, {'base': './'});
   var sounds = gulp.src(soundFiles, {'base': './'});
 
   // Firefox can handle ES6.
-  merge(manifest, es, images, sounds)
+  merge(manifest, es, html, images, sounds)
     .pipe(zip(xpiName))
     .pipe(gulp.dest(dist));
 
   // Chrome needs a transpiler.
-  merge(manifest, js, images, sounds)
+  merge(manifest, js, html, images, sounds)
     .pipe(gulp.dest(dist));
 });
 
