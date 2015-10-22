@@ -15,7 +15,7 @@
 
   "applications": {
     "gecko": {
-      "id": "jid1-6mUPixNFCjAgkg@jetpack",
+      "id": "ui-playground@mozilla",
       "strict_min_version": "40.0.0"
     }
   },
@@ -50,7 +50,7 @@
       "32": "images/whimsycorn-32.png",
       "64": "images/whimsycorn-64.png"
     },
-    "default_title": "Whimsy!",
+    "default_title": "Whimsy!  ☕️ ✨ 🚲",
     "default_popup": "catgifs.html"
   },
 
@@ -66,7 +66,7 @@
       "32": "images/whimsycorn-32.png",
       "64": "images/whimsycorn-64.png"
     },
-    "default_title": "Whimsy!",
+    "default_title": "Whimsy!  ☕️ ✨ 🚲",
     "default_popup": "catgifs.html"
   },
 
