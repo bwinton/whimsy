@@ -9,11 +9,13 @@
 'use strict';
 
 function mouseOverListener(e) {
-  e.target.style.backgroundImage = e.target.dataset.newPreview;
+  let thumb = e.target.previousElementSibling;
+  thumb.style.backgroundImage = thumb.dataset.newPreview;
 }
 
 function mouseOutListener(e) {
-  e.target.style.backgroundImage = e.target.dataset.oldPreview;
+  let thumb = e.target.previousElementSibling;
+  thumb.style.backgroundImage = thumb.dataset.oldPreview;
 }
 
 function mouseMoveListener (e) {
@@ -72,26 +74,28 @@ function updateThumbnails() {
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
         thumb.removeEventListener('mouseout', mouseOutListener);
+        window.removeEventListener('mousemove', mouseMoveListener);
         break;
       case 1:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
         thumb.addEventListener('mouseover', mouseOverListener);
         thumb.addEventListener('mouseout', mouseOutListener);
+        window.removeEventListener('mousemove', mouseMoveListener);
         break;
       case 2:
         thumb.style.backgroundImage = thumb.dataset.newPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
         thumb.removeEventListener('mouseout', mouseOutListener);
+        window.addEventListener('mousemove', mouseMoveListener);
         break;
       case 3:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
         thumb.removeEventListener('mouseout', mouseOutListener);
+        window.removeEventListener('mousemove', mouseMoveListener);
       }
     }
   }
-
-  window.addEventListener('mousemove', mouseMoveListener);
 }
 
 function addThumbnails(thumbnails) {
