@@ -9,29 +9,13 @@
 'use strict';
 
 function mouseOverListener(e) {
-  e.target.style.backgroundImage = e.target.dataset.newPreview;
+  let thumb = e.target.previousElementSibling;
+  thumb.style.backgroundImage = thumb.dataset.newPreview;
 }
 
 function mouseOutListener(e) {
-  e.target.style.backgroundImage = e.target.dataset.oldPreview;
-}
-
-function mouseMoveListener (e) {
-  var thumbnails = window.document.getElementsByClassName('newtab-cell');
-  for (let i = 0; i < thumbnails.length; ++i) {
-    let thumb = thumbnails[i];
-    let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
-    if (!thumbs.length) {
-      thumbs = [thumb];
-    }
-
-    let top = Math.round(e.clientY * 100 / window.innerHeight);
-    let left = Math.round(e.clientX * 100 / window.innerWidth);
-    for (let i = 0; i < thumbs.length; i++) {
-      let thumb = thumbs[i];
-      thumb.style.backgroundPosition = 'top ' + top + '% left ' + left + '%';
-    }
-  }
+  let thumb = e.target.previousElementSibling;
+  thumb.style.backgroundImage = thumb.dataset.oldPreview;
 }
 
 function updateThumbnails() {
@@ -90,8 +74,6 @@ function updateThumbnails() {
       }
     }
   }
-
-  window.addEventListener('mousemove', mouseMoveListener);
 }
 
 function addThumbnails(thumbnails) {
