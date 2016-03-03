@@ -3,21 +3,74 @@
   <head>
     <meta charset=utf-8>
     <title>Whimsy DevTools  ☕️ ✨ 🚲</title>
+    <style media="screen">
+      .icon-section-header {
+        background-image: url("images/whimsycorn-128.png");
+        background-size: contain;
+      }
+
+      .panel-formElements-item label:first-child {
+        min-width: 5em;
+        margin-left: 0;
+      }
+
+      .panel-formElements-item label {
+        margin-left: calc(5em + 6px);
+      }
+
+    </style>
   </head>
   <body>
-    ☕️ ✨ 🚲<br>
-    <img src="images/whimsycorn-128.png" width="128" height="128">
-    <!-- <iframe src="http://chilloutandwatchsomecatgifs.com/" width="400" height="900">
-      <p>Your browser does not support iframes.</p>
-    </iframe> -->
-    <form>
-      <fieldset>
-        <legend>Test data:</legend>
-        Name: <input type="text" name="name" emptytext="Whimsycorn"><br>
-        <input type="radio" name="whimsy" value="Whimsy" checked>Whimsy<br>
-        <input type="submit" value="Submit">
-      </fieldset>
-    </form>
-    <br clear="all">
+
+<div class="panel-section panel-section-header">
+  <div class="icon-section-header"></div>
+  <div class="text-section-header">Whimsy!</div>
+</div>
+<div class="panel-section panel-section-list">
+  <div class="panel-list-item">
+    <div class="icon"></div>
+    <div class="text">List Item</div>
+    <div class="text-shortcut">Ctrl-L</div>
+  </div>
+  <div class="panel-list-item">
+    <div class="icon"></div>
+    <div class="text">List Item</div>
+    <div class="text-shortcut"></div>
+  </div>
+
+  <div class="panel-section-separator"></div>
+</div>
+<div class="panel-section panel-section-formElements">
+  <div class="panel-formElements-item">
+    <label for="name01">Text:</label>
+    <input type="text" value="Name" emptytext="Whimsycorn" id="name01"/>
+  </div>
+  <div class="panel-formElements-item">
+    <label for="select01">Select:</label>
+    <select id="select01">
+      <option value="value1" selected>Dropdown</option>
+      <option value="value2">List Item</option>
+      <option value="value3">List Item</option>
+    </select>
+  </div>
+  <div class="panel-formElements-item">
+    <input type="checkbox" id="checkboxExample01" />
+    <label for="checkboxExample01">Checkbox</label>
+  </div>
+  <div class="panel-formElements-item">
+    <input type="radio" name="radioExample" id="radioExample02" checked />
+    <label for="radioExample02">Checked</label>
+  </div>
+  <div class="panel-formElements-item">
+    <input type="radio" name="radioExample" id="radioExample01" />
+    <label for="radioExample01">Radio</label>
+  </div>
+</div>
+<div class="panel-section panel-section-footer">
+  <div class="panel-section-footer-button"> ☕️ ✨ 🚲
+    <span class="text-shortcut">⌘⏎</span>
+  </div>
+</div>
+
   </body>
 </html>

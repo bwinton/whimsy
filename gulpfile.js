@@ -31,7 +31,6 @@ gulp.task('other', function () {
       {'from': 'shortName', 'to': 'name'},
       'version',
       'description',
-      'author',
       'contributors',
       {'from': 'homepage', 'to': 'homepage_url'}
     ]}));

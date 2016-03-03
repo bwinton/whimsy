@@ -34,8 +34,7 @@
   ],
 
   "background": {
-    "scripts": ["background.js"],
-    "persistent": false
+    "scripts": ["background.js"]
   },
 
   "browser_action": {
@@ -50,7 +49,7 @@
       "32": "images/whimsycorn-32.png",
       "64": "images/whimsycorn-64.png"
     },
-    "default_title": "Whimsy!  ☕️ ✨ 🚲",
+    "default_title": "Whimsy!",
     "default_popup": "catgifs.html"
   },
 
@@ -66,9 +65,7 @@
       "32": "images/whimsycorn-32.png",
       "64": "images/whimsycorn-64.png"
     },
-    "default_title": "Whimsy!  ☕️ ✨ 🚲",
+    "default_title": "Whimsy!",
     "default_popup": "catgifs.html"
-  },
-
-  "devtools_page": "devtools.html"
+  }
 }
