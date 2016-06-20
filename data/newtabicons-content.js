@@ -141,7 +141,5 @@ function overrideToggle() {
   });
 }
 
-window.addEventListener('load', function () {
-    addThumbnails(window.document.getElementsByClassName('newtab-cell'));
-  overrideToggle();
-}, false);
+addThumbnails(window.document.getElementsByClassName('newtab-cell'));
+overrideToggle();
