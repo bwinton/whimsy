@@ -128,7 +128,7 @@
       "title": "Site notifications",
       "description": "Let websites know you’ve installed Whimsy",
       "type": "string",
-      "value": "[\"*.mozilla.org\", \"*.chilloutandwatchsomecatgifs.com\"]"
+      "value": "[\"*.mozilla.org\", \"*.chilloutandwatchsomecatgifs.com\", \"firefoxux.github.io\"]"
     },
     {
       "name": "register2",
@@ -147,7 +147,7 @@
   "bugs": {},
   "amd": {},
   "repository": {},
-  "version": "1.1.4",
+  "version": "2.0.0",
   "contributors": [
     "Bryan Clark",
     "Mike Conley",
