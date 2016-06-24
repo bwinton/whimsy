@@ -9,17 +9,17 @@
 'use strict';
 
 function mouseOverListener(e) {
-  let thumb = e.target.previousElementSibling;
+  let thumb = e.target.previousElementSibling || e.target;
   thumb.style.backgroundImage = thumb.dataset.newPreview;
 }
 
 function mouseOutListener(e) {
-  let thumb = e.target.previousElementSibling;
+  let thumb = e.target.previousElementSibling || e.target;
   thumb.style.backgroundImage = thumb.dataset.oldPreview;
 }
 
 function mouseMoveListener (e) {
-  var thumbnails = window.document.getElementsByClassName('newtab-cell');
+  var thumbnails = window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background');
   for (let i = 0; i < thumbnails.length; ++i) {
     let thumb = thumbnails[i];
     let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
@@ -37,7 +37,7 @@ function mouseMoveListener (e) {
 }
 
 function updateThumbnails() {
-  var thumbnails = window.document.getElementsByClassName('newtab-cell');
+  var thumbnails = window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background');
   if (thumbnails.length === 0) {
     setTimeout(updateThumbnails, 500);
     return;
@@ -101,7 +101,7 @@ function updateThumbnails() {
 function addThumbnails(thumbnails) {
   if (thumbnails.length === 0) {
     setTimeout(function () {
-      addThumbnails(window.document.getElementsByClassName('newtab-cell'));
+      addThumbnails(window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background'));
     }, 1000);
     return;
   }
@@ -141,5 +141,5 @@ function overrideToggle() {
   });
 }
 
-addThumbnails(window.document.getElementsByClassName('newtab-cell'));
+addThumbnails(window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background'));
 overrideToggle();
