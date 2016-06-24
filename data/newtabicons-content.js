@@ -9,17 +9,23 @@
 'use strict';
 
 function mouseOverListener(e) {
-  let thumb = e.target.previousElementSibling || e.target;
+  var thumb = e.target.previousElementSibling || e.target;
+  if (thumb.classList.contains('tile-img-container')) {
+    thumb = thumb.querySelector('.site-icon-background')
+  }
   thumb.style.backgroundImage = thumb.dataset.newPreview;
 }
 
 function mouseOutListener(e) {
-  let thumb = e.target.previousElementSibling || e.target;
+  var thumb = e.target.previousElementSibling || e.target;
+  if (thumb.classList.contains('tile-img-container')) {
+    thumb = thumb.querySelector('.site-icon-background')
+  }
   thumb.style.backgroundImage = thumb.dataset.oldPreview;
 }
 
 function mouseMoveListener (e) {
-  var thumbnails = window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background');
+  var thumbnails = window.document.querySelectorAll(selectors);
   for (let i = 0; i < thumbnails.length; ++i) {
     let thumb = thumbnails[i];
     let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
@@ -37,7 +43,7 @@ function mouseMoveListener (e) {
 }
 
 function updateThumbnails() {
-  var thumbnails = window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background');
+  var thumbnails = window.document.querySelectorAll(selectors);
   if (thumbnails.length === 0) {
     setTimeout(updateThumbnails, 500);
     return;
@@ -73,25 +79,28 @@ function updateThumbnails() {
       case 0:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
-        thumb.removeEventListener('mouseout', mouseOutListener);
+        thumb.removeEventListener('mouseleave', mouseOutListener);
         window.removeEventListener('mousemove', mouseMoveListener);
         break;
       case 1:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
+        if (thumb.classList.contains('site-icon-background')){
+          thumb = thumb.parentNode;
+        }
         thumb.addEventListener('mouseover', mouseOverListener);
-        thumb.addEventListener('mouseout', mouseOutListener);
+        thumb.addEventListener('mouseleave', mouseOutListener);
         window.removeEventListener('mousemove', mouseMoveListener);
         break;
       case 2:
         thumb.style.backgroundImage = thumb.dataset.newPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
-        thumb.removeEventListener('mouseout', mouseOutListener);
+        thumb.removeEventListener('mouseleave', mouseOutListener);
         window.addEventListener('mousemove', mouseMoveListener);
         break;
       case 3:
         thumb.style.backgroundImage = thumb.dataset.oldPreview;
         thumb.removeEventListener('mouseover', mouseOverListener);
-        thumb.removeEventListener('mouseout', mouseOutListener);
+        thumb.removeEventListener('mouseleave', mouseOutListener);
         window.removeEventListener('mousemove', mouseMoveListener);
       }
     }
@@ -101,13 +110,17 @@ function updateThumbnails() {
 function addThumbnails(thumbnails) {
   if (thumbnails.length === 0) {
     setTimeout(function () {
-      addThumbnails(window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background'));
+      addThumbnails(window.document.querySelectorAll(selectors));
     }, 1000);
     return;
   }
 
   for (let i = 0; i < thumbnails.length; ++i) {
     let thumb = thumbnails[i];
+    if (thumb.querySelector('.site-icon-background')) {
+      thumb.querySelector('.site-icon.spotlight-icon').style.backgroundColor = 'transparent';
+      thumb.querySelector('.site-icon-background').style.backgroundColor = 'transparent';
+    }
     let thumbs = thumb.getElementsByClassName('newtab-thumbnail');
     if (!thumbs.length) {
       thumbs = [thumb];
@@ -140,6 +153,6 @@ function overrideToggle() {
     updateThumbnails();
   });
 }
-
-addThumbnails(window.document.querySelectorAll('.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background'));
+const selectors = '.newtab-cell, .spotlight-image, .tile-img-container .site-icon-background'
+addThumbnails(window.document.querySelectorAll(selectors));
 overrideToggle();
