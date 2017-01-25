@@ -109,7 +109,7 @@ http://mozillamemes.tumblr.com
 Duke (duke duke) Duke of URL (duke duke) Duke of URL (duke duke) Duke of URRRRLLL!
 Web surfing is hard, let's go shopping. Screw that, shopping is hard, let's do matrix multiplication!
 swirly donut? at least it's not the dreaded read admiral.
-Bug 923495: Add the "Google Chrome" feature to Firefox
+Bug 122411: Add the "Google Chrome" feature to Firefox
 I just love Mozzarella Foxfire!
 Oh hai!
 You're tearing me APART Lisa!
@@ -231,3 +231,4 @@ http://canadianholidaysexplained.tumblr.com/
 〆(・∀・＠)
 (/) (°,,°) (/)
 moz://a
+"(Pull Requests|Patches|Commits) Welcome" translates quite cleanly to "Piss Off" in many languages
