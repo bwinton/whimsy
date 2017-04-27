@@ -232,3 +232,4 @@ http://canadianholidaysexplained.tumblr.com/
 (/) (°,,°) (/)
 moz://a
 "(Pull Requests|Patches|Commits) Welcome" translates quite cleanly to "Go Away" in many languages
+Reticulating Splines…
