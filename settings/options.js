@@ -1,11 +1,10 @@
 'use strict';
 
 //save user's Mario mode preference in storage
-function saveOptions(e){
+function saveOptions(){
    browser.storage.sync.set({
       mario: document.querySelector('#mario').checked
    });
-   e.preventDefault();
 }
 //load Mario mode preference or set to default true
 function restoreOptions(){
@@ -20,4 +19,4 @@ function restoreOptions(){
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.querySelector("form").addEventListener("submit", saveOptions);
+document.querySelector("#mario").addEventListener("click", saveOptions);
