@@ -1,36 +1,41 @@
 {
-    "manifest_version": 2,
-    "name": "Whimsy",
-    "version": "2.0.0",
-    "description": "Add some Whimsy to your Firefox! 🦄🌈",
-    "homepage_url": "https://github.com/bwinton/whimsy/tree/webextension",
-    "author": "Blake Winton <bwinton@latte.ca>",
-    "icons": {
-        "48": "icon.png",
-        "64": "icon64.png"
-    },
+  "manifest_version": 2,
+  "name": "Whimsy",
+  "version": "2.0.0",
+  "description": "Add some Whimsy to your Firefox! 🦄🌈",
+  "homepage_url": "https://github.com/bwinton/whimsy/tree/webextension",
+  "author": "Blake Winton <bwinton@latte.ca>",
+  "contributors": [
+    "Daniela Arcese",
+    "Erica Wright"
+  ],
+  "icons": {
+    "48": "icon.png",
+    "64": "icon64.png"
+  },
 
-    "applications":{
-        "gecko":{
-            "id": "jid1-6mUPixNFCjAgkg@jetpack"
-        }
-    },
-    "permissions":[
-        "tabs",
-        "storage",
-        "bookmarks"
-    ],
-    "background":{
-        "scripts":["background-scripts/background.js","background-scripts/mario.js"]
-    },
-    "browser_action": {
-        "default_icon": {
-            "48": "icon.png",
-            "64": "icon64.png"
-        },
-        "default_title": "Whimsy"
-    },
-    "options_ui":{
-        "page":"settings/options.html"
+  "applications":{
+    "gecko":{
+      "id": "jid1-6mUPixNFCjAgkg@jetpack"
     }
+  },
+  "permissions":[
+    "tabs",
+    "storage",
+    "bookmarks"
+  ],
+  "background":{
+    "scripts":["background-scripts/background.js","background-scripts/mario.js"]
+  },
+  "browser_action": {
+    "default_icon": {
+      "48": "icon.png",
+      "64": "icon64.png"
+    },
+    "default_title": "Whimsy"
+  },
+  "options_ui":{
+    "page":"settings/options.html",
+    "chrome_style": true
+  }
 }
