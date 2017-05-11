@@ -35,6 +35,7 @@
     "default_title": "Whimsy"
   },
   "options_ui":{
-    "page":"settings/options.html"
+    "page":"settings/options.html",
+    "chrome_style": true
   }
 }

@@ -10,7 +10,12 @@ function saveOptions(){
 function restoreOptions(){
   var getting = browser.storage.sync.get('mario');
   getting.then((result)=>{
-    document.querySelector("#mario").checked = result.mario || false;
+    if (result.mario==null){
+      document.querySelector("#mario").checked=true;
+    }
+    else{
+      document.querySelector("#mario").checked = result.mario ;
+    }
   });
 
   function onError(error){
