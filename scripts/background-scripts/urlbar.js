@@ -3,6 +3,19 @@
 var placeholders = [];
 var url = 'https://raw.github.com/bwinton/whimsy/gh-pages/urlbar-sayings.txt';
 
+setDefaults([
+  'Where do you want to go today?',
+  'Just type ”google.com“.  You know you’re going to.',
+  'Let’s do this thing!',
+  'Hey, I wonder what we should have for lunch?',
+  'Where to, boss?',
+  'I hear Facebook is nice this time of year…',
+  'You know you can search from here, right?',
+  'Have you thought about trying Private Browsing Mode?',
+  'You are in a maze of twisty web pages, all alike.',
+  'Hi!  My name is Url.'
+]);
+
 function setDefaults(defaults){
   placeholders = defaults;
 }
@@ -20,20 +33,6 @@ function loadPlaceholders() {
     });
     req.send();
   });
-}
-function onStart(){
-  setDefaults([
-    'Where do you want to go today?',
-    'Just type ”google.com“.  You know you’re going to.',
-    'Let’s do this thing!',
-    'Hey, I wonder what we should have for lunch?',
-    'Where to, boss?',
-    'I hear Facebook is nice this time of year…',
-    'You know you can search from here, right?',
-    'Have you thought about trying Private Browsing Mode?',
-    'You are in a maze of twisty web pages, all alike.',
-    'Hi!  My name is Url.'
-  ]);
 }
 function onChange(text, suggest){
   //get preference setting
@@ -68,7 +67,15 @@ function addSuggestions(){
     return resolve(suggestions);
   });
 }
+function onCreateTab(tab){
+  //set current tab browserAction title to random saying
+  let rand = Math.floor(Math.random() * placeholders.length);
+  browser.browserAction.setTitle({
+    title: placeholders[rand],
+    tabId: tab.id
+  });
+}
 
 //browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
-browser.omnibox.onInputStarted.addListener(onStart);
 browser.omnibox.onInputChanged.addListener(onChange);
+browser.tabs.onCreated.addListener(onCreateTab);
