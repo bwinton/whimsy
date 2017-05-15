@@ -1,6 +1,5 @@
 'use strict'
 
-//var textDoc = new TextDoc('urlbar-sayings');
 var placeholders = [];
 var url = 'https://raw.github.com/bwinton/whimsy/gh-pages/urlbar-sayings.txt';
 
@@ -37,18 +36,24 @@ function onStart(){
   ]);
 }
 function onChange(text, suggest){
-  //load new saying on input changes
-  loadPlaceholders()
-    .then(response => {
-      placeholders = response.split('\n');
-      placeholders = placeholders.map(function(x){
-        return x.trim();
-      }).filter(function(x){
-        return !x.startsWith('#') && (x !== '');
-      });
-    })
-    .then(addSuggestions)
-    .then(suggest);
+  //get preference setting
+  var getting = browser.storage.sync.get('sayings');
+  getting.then((result)=>{
+    if (result.sayings){
+      //load new saying on input changes
+      loadPlaceholders()
+      .then(response => {
+        placeholders = response.split('\n');
+        placeholders = placeholders.map(function(x){
+          return x.trim();
+        }).filter(function(x){
+          return !x.startsWith('#') && (x !== '');
+        });
+      })
+      .then(addSuggestions)
+      .then(suggest);
+    }
+  });
 }
 function addSuggestions(){
   return new Promise(resolve => {
@@ -63,6 +68,7 @@ function addSuggestions(){
     return resolve(suggestions);
   });
 }
-browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
+
+//browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
 browser.omnibox.onInputStarted.addListener(onStart);
 browser.omnibox.onInputChanged.addListener(onChange);
