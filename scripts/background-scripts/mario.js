@@ -10,7 +10,7 @@ function onRemove(){
 function playSound(url){
   var getting = browser.storage.sync.get('mario');
   getting.then((result)=>{
-    if (result.mario){
+    if (result.mario || result.mario == null){
       //play coin/goomba stomp sound
       var audio = new Audio();
       audio.src=browser.extension.getURL(url);
