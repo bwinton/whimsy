@@ -1,7 +1,7 @@
 'use strict'
 
 var placeholders = [];
-var url = 'https://raw.github.com/bwinton/whimsy/gh-pages/urlbar-sayings.txt';
+var url = 'https://bwinton.github.io/whimsy/urlbar-sayings.txt';
 
 setDefaults([
   'Where do you want to go today?',
@@ -15,41 +15,55 @@ setDefaults([
   'You are in a maze of twisty web pages, all alike.',
   'Hi!  My name is Url.'
 ]);
+initialize();
 
 function setDefaults(defaults){
   placeholders = defaults;
 }
-function loadPlaceholders() {
-  //load sayings from url
-  return new Promise((resolve, reject) => {
-    var req = new XMLHttpRequest();
-    req.open("GET", url);
-    req.addEventListener("load", () => {
-      if (req.status === 200){
-        resolve(req.response);
-      } else {
-        reject(Error("Error code: " + req.statusText));
-      }
-    });
-    req.send();
-  });
+function initialize(){
+  //get sayings and set browser action title
+  fetch(url).then(function(response){
+    if(response.ok){
+      response.text().then(function(data){
+        placeholders = data;
+        placeholders = placeholders.split('\n');
+        placeholders = placeholders.map(function(x){
+          return x.trim();
+        }).filter(function(x){
+          return !x.startsWith('#') && (x !== '');
+        })
+      })
+    } else {
+      throw new Error('Network response was not ok.');
+    }
+  }).catch(function(error) {
+    console.log('There has been a problem with your fetch operation: ' + error.message);
+  }).then(setTitle);
+}
+function setTitle(){
+  var getting = browser.storage.sync.get('sayings');
+  getting.then((result)=>{
+    if (result.sayings || result.sayings == null){
+      //set browserAction title to random saying
+      let rand = Math.floor(Math.random() * placeholders.length);
+      browser.tabs.onActivated.addListener(onActivated);
+      browser.browserAction.setTitle({
+        title: placeholders[rand]
+      });
+    } else {
+      browser.tabs.onActivated.removeListener(onActivated);
+      browser.browserAction.setTitle({
+        title: "Whimsy"
+      });
+    }
+  })
 }
 function onChange(text, suggest){
   //get preference setting
   var getting = browser.storage.sync.get('sayings');
   getting.then((result)=>{
-    if (result.sayings){
-      //load new saying on input changes
-      loadPlaceholders()
-      .then(response => {
-        placeholders = response.split('\n');
-        placeholders = placeholders.map(function(x){
-          return x.trim();
-        }).filter(function(x){
-          return !x.startsWith('#') && (x !== '');
-        });
-      })
-      .then(addSuggestions)
+    if (result.sayings || result.sayings == null){
+      addSuggestions()
       .then(suggest);
     }
   });
@@ -67,15 +81,20 @@ function addSuggestions(){
     return resolve(suggestions);
   });
 }
-function onCreateTab(tab){
-  //set current tab browserAction title to random saying
+function onActivated(activeInfo){
   let rand = Math.floor(Math.random() * placeholders.length);
   browser.browserAction.setTitle({
     title: placeholders[rand],
-    tabId: tab.id
+    tabId: activeInfo.tabId
   });
+}
+function onStorageChange(changes, area) {
+  if (changes.sayings.oldValue != changes.sayings.newValue){
+    setTitle();
+  }
 }
 
 //browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
 browser.omnibox.onInputChanged.addListener(onChange);
-browser.tabs.onCreated.addListener(onCreateTab);
+browser.tabs.onActivated.addListener(onActivated);
+browser.storage.onChanged.addListener(onStorageChange);

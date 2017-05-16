@@ -22,8 +22,7 @@
   "permissions":[
     "tabs",
     "storage",
-    "bookmarks",
-    "https://raw.github.com/bwinton/whimsy/gh-pages/urlbar-sayings.txt"
+    "bookmarks"
   ],
   "background":{
     "scripts":[
