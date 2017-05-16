@@ -25,7 +25,11 @@
     "bookmarks"
   ],
   "background":{
-    "scripts":["background-scripts/background.js","background-scripts/mario.js"]
+    "scripts":[
+      "scripts/background-scripts/background.js",
+      "scripts/background-scripts/mario.js",
+      "scripts/background-scripts/urlbar.js"
+    ]
   },
   "browser_action": {
     "default_icon": {
@@ -37,5 +41,6 @@
   "options_ui":{
     "page":"settings/options.html",
     "chrome_style": true
-  }
+  },
+  "omnibox": {"keyword" : "whimsy"}
 }
