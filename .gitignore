@@ -3,3 +3,5 @@ whimsy.xpi
 whimsy.update.rdf
 profile.*
 images/
+.vscode
+node_modules
