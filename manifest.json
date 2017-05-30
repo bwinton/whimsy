@@ -14,18 +14,19 @@
     "64": "icon64.png"
   },
 
-  "applications":{
-    "gecko":{
+  "applications": {
+    "gecko": {
       "id": "jid1-6mUPixNFCjAgkg@jetpack"
     }
   },
-  "permissions":[
+  "permissions": [
     "tabs",
     "storage",
-    "bookmarks"
+    "bookmarks",
+    "topSites"
   ],
-  "background":{
-    "scripts":[
+  "background": {
+    "scripts": [
       "scripts/background-scripts/background.js",
       "scripts/background-scripts/mario.js",
       "scripts/background-scripts/urlbar.js"
@@ -38,9 +39,14 @@
     },
     "default_title": "Whimsy"
   },
-  "options_ui":{
-    "page":"settings/options.html",
+  "options_ui": {
+    "page": "settings/options.html",
     "chrome_style": true
   },
-  "omnibox": {"keyword" : "whimsy"}
+  "omnibox": {
+    "keyword": "whimsy"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab-page/newtab.html"
+  }
 }
