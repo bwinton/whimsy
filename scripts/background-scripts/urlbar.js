@@ -74,7 +74,7 @@ function onStorageChange(changes, area) {
   }
 }
 
-//browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
+browser.omnibox.setDefaultSuggestion({description: "Whimsy sayings"});
 browser.omnibox.onInputChanged.addListener(onChange);
 browser.tabs.onActivated.addListener(onActivated);
 browser.storage.onChanged.addListener(onStorageChange);
