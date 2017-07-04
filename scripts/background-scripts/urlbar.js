@@ -15,32 +15,12 @@ setDefaults([
   'You are in a maze of twisty web pages, all alike.',
   'Hi!  My name is Url.'
 ]);
-initialize();
+initialize('https://bwinton.github.io/whimsy/urlbar-sayings.txt', setTitle);
 
 function setDefaults(defaults){
   placeholders = defaults;
 }
-function initialize(){
-  //get sayings and set browser action title
-  fetch(url).then(function(response){
-    if(response.ok){
-      response.text().then(function(data){
-        placeholders = data;
-        placeholders = placeholders.split('\n');
-        placeholders = placeholders.map(function(x){
-          return x.trim();
-        }).filter(function(x){
-          return !x.startsWith('#') && (x !== '');
-        })
-      })
-    } else {
-      throw new Error('Network response was not ok.');
-    }
-  }).catch(function(error) {
-    console.log('There has been a problem with your fetch operation: ' + error.message);
-  }).then(setTitle);
-}
-function setTitle(){
+function setTitle(placeholders){
   var getting = browser.storage.sync.get('sayings');
   getting.then((result)=>{
     if (result.sayings || result.sayings == null){
@@ -90,7 +70,7 @@ function onActivated(activeInfo){
 }
 function onStorageChange(changes, area) {
   if (changes.sayings.oldValue != changes.sayings.newValue){
-    setTitle();
+    setTitle(placeholders);
   }
 }
 

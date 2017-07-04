@@ -5,6 +5,7 @@
   <meta content="utf-8" http-equiv="encoding">
   <link rel="stylesheet" type="text/css" media="all" href="chrome://browser/content/newtab/newTab.css" />
   <link rel="stylesheet" type="text/css" media="all" href="chrome://browser/skin/newtab/newTab.css" />
+
 </head>
 
 <body xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
@@ -13,7 +14,7 @@
   <div id="newtab-vertical-margin">
     <div id="newtab-margin-top"></div>
     <div>
-      <iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&focus=yes" style="display: block;overflow:hidden;margin: auto;padding:0;width:551px;height:40px;" frameborder="0"></iframe>
+      <iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&amp;focus=yes" style="display: block;overflow:hidden;margin: auto;padding:0;width:551px;height:40px;" frameborder="0"></iframe>
     </div>
       <div id="newtab-horizontal-margin">
         <div class="newtab-side-margin"></div>
@@ -25,8 +26,8 @@
 
       <div id="newtab-margin-bottom"></div>
     </div>
+      <script src="../bundle.js"></script>
   </body>
   <!-- <script type="text/javascript" src="chrome://browser/content/contentSearchUI.js"></script>
   <script type="text/javascript" src="chrome://browser/content/newtab/newTab.js"></script> -->
-  <script src="../scripts/newtab.js"></script>
-  <script src="../bundle.js"></script>
+  <script src="../scripts/background-scripts/initialize.js"></script>
