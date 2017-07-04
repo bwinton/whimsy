@@ -1,0 +1,12 @@
+{
+  "name": "Whimsy",
+  "version": "1.0.0",
+  "dependencies": {
+    "tippy-top-sites": "^1.2.2"
+  },
+  "scripts": {
+    "build": "browserify scripts/newtab.js -o bundle.js",
+    "dev": "watchify scripts/newtab.js -o bundle.js & web-ext run",
+    "start": "browserify scripts/newtab.js -o bundle.js & web-ext run"
+  }
+}
