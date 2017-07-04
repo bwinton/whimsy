@@ -4,9 +4,6 @@ var listener = false;
 var tippyTopSites = require('tippy-top-sites');
 var pref = null;
 
-// initialize('https://bwinton.github.io/whimsy/thumbnail-gifs.txt')
-//   .then(setThumbnail);
-
 browser.storage.sync.get('newtab').then((result) => {
   pref = result.newtab;
 });
@@ -31,7 +28,6 @@ function loadTopSites(){
     }
   }, onError)
   .then(initialize('https://bwinton.github.io/whimsy/thumbnail-gifs.txt', setThumbnail))
-  //.then(setThumbnail(placeholders));
 }
 
 function setThumbnail(placeholders){
