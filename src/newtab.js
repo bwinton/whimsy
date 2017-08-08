@@ -26,7 +26,7 @@ function createElement(label, attrs, children=[]) {
 }
 
 function createTopSite(topSite) {
-  const rv = createElement('div', {'class': 'newtab-cell'}, [
+  const rv = createElement('div', {'class': 'newtab-cell', 'contextmenu': 'context-menu'}, [
     createElement('div', {'class': 'newtab-site', 'draggable': 'true', 'type': 'history'}, [
       createElement('a', {'class': 'newtab-link', 'title': topSite.title, 'href':topSite.url}, [
         createElement('span', {'class': 'newtab-thumbnail thumbnail'}),
@@ -41,16 +41,37 @@ function createTopSite(topSite) {
 
 function loadTopSites(){
   //display top sites
+  const menu = document.getElementById('context-menu');
+  menu.addEventListener('click', e => {
+    let copyElement = document.createElement('input');
+    copyElement.setAttribute('type', 'text');
+    copyElement.setAttribute('value', menu.dataset.url);
+    copyElement = document.body.appendChild(copyElement);
+    copyElement.select();
+    document.execCommand('copy');
+    copyElement.remove();
+  });
   browser.topSites.get().then((topSitesArray) => {
-    const node = document.querySelector("#newtab-grid");
+    const node = document.getElementById('newtab-grid');
 
     const sites = document.createDocumentFragment(); 
     for (let topSite of topSitesArray) {
       sites.appendChild(createTopSite(topSite));
     }
-    var grid = node.cloneNode(false);
+    const grid = node.cloneNode(false);
     grid.append(sites);
     node.parentNode.replaceChild(grid, node);
+    grid.addEventListener('contextmenu', e => {
+      let target = e.target;
+      while (target && !target.classList.contains('newtab-link')) {
+        target = target.parentNode;
+      }
+      if (!target) {
+        e.preventDefault();
+        return false;
+      }
+      menu.dataset.url = target.dataset.url;
+    });
   }, onError)
   .then(initialize('https://bwinton.github.io/whimsy/thumbnail-gifs.txt', setThumbnail))
   .then(initialize('https://bwinton.github.io/whimsy/urlbar-sayings.txt', setTitle));
@@ -69,6 +90,7 @@ function setThumbnail(placeholders){
         img.removeEventListener("mouseover", onMouseLeave);
       }
       let rand = Math.floor(Math.random() * placeholders.length);
+      img.parentNode.dataset.url = placeholders[rand];
       img.style.backgroundImage = "url("+placeholders[rand]+")";
     })
   } else if (pref == "hover"){
@@ -129,6 +151,7 @@ function setThumbnail(placeholders){
 function createCanvas(href, link, img){
   //set gifs
   let rand = Math.floor(Math.random() * placeholders.length);
+  img.parentNode.dataset.url = placeholders[rand];
   img.style.backgroundImage = "url("+placeholders[rand]+")";
 
   //add canvas on every gif
