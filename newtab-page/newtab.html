@@ -5,7 +5,19 @@
   <meta content="utf-8" http-equiv="encoding">
   <link rel="stylesheet" type="text/css" media="all" href="chrome://browser/content/newtab/newTab.css" />
   <link rel="stylesheet" type="text/css" media="all" href="chrome://browser/skin/newtab/newTab.css" />
-
+  <style>
+    #newtab-grid {
+      width: 930px;
+      max-width: 1551px;
+      height: 802px;
+      max-height: 802px;
+    }
+    .newtab-thumbnail.thumbnail {
+      background-size: cover;
+      background-position: center;
+      background-image: none;
+    }
+  </style>
 </head>
 
 <body xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
@@ -18,7 +30,7 @@
     </div>
       <div id="newtab-horizontal-margin">
         <div class="newtab-side-margin"></div>
-        <div id="newtab-grid" style="width: 930px; max-width: 1551px; height: 802px; max-height: 802px;">
+        <div id="newtab-grid">
           <h1 id="topsites-heading">Your Top Sites</h1>
         </div>
         <div class="newtab-side-margin"></div>
@@ -26,8 +38,8 @@
 
       <div id="newtab-margin-bottom"></div>
     </div>
-      <script src="../bundle.js"></script>
+      <script src="bundle.js"></script>
   </body>
   <!-- <script type="text/javascript" src="chrome://browser/content/contentSearchUI.js"></script>
   <script type="text/javascript" src="chrome://browser/content/newtab/newTab.js"></script> -->
-  <script src="../scripts/background-scripts/initialize.js"></script>
+  <script src="../background-scripts/initialize.js"></script>

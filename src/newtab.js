@@ -11,21 +11,46 @@ browser.storage.sync.get('newtab').then((result) => {
 function onError(error) {
   console.log(error);
 }
+
+function createElement(label, attrs, children=[]) {
+  let rv = document.createElement(label);
+  if (attrs) {
+    for (let attr in attrs) {
+      rv.setAttribute(attr, attrs[attr]);
+    }
+  }
+  for (var index = 0; index < children.length; index++) {
+    rv.appendChild(children[index]);
+  }
+  return rv;
+}
+
+function createTopSite(topSite) {
+  const rv = createElement('div', {'class': 'newtab-cell'}, [
+    createElement('div', {'class': 'newtab-site', 'draggable': 'true', 'type': 'history'}, [
+      createElement('a', {'class': 'newtab-link', 'title': topSite.title, 'href':topSite.url}, [
+        createElement('span', {'class': 'newtab-thumbnail thumbnail'}),
+        createElement('span', {'class': 'newtab-title'}, [
+          document.createTextNode(topSite.title)
+        ])
+      ])
+    ])
+  ]);
+  return rv;
+}
+
 function loadTopSites(){
   //display top sites
   browser.topSites.get().then((topSitesArray) => {
-    var grid = document.querySelector("#newtab-grid");
-    grid.innerHTML = "";
+    const node = document.querySelector("#newtab-grid");
+
+    const sites = document.createDocumentFragment(); 
     for (let topSite of topSitesArray) {
-      grid.innerHTML +=
-      "<div class='newtab-cell'><div class='newtab-site' draggable='true' type='history'>"+
-      "<a class='newtab-link' title="+topSite.title+" href="+topSite.url+">"+
-      "<span class='newtab-thumbnail thumbnail' style='background-size: cover; background-position: center; background-image: ;'></span>"+
-      "<span class='newtab-title'>"+topSite.title+"</span>"+
-      "</a>"+
-      "</div>"+
-      "</div>"
+      sites.appendChild(createTopSite(topSite));
     }
+    var grid = node.cloneNode(false);
+    grid.append(sites);
+    node.parentNode.replaceChild(grid, node);
   }, onError)
   .then(initialize('https://bwinton.github.io/whimsy/thumbnail-gifs.txt', setThumbnail))
 }

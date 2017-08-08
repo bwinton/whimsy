@@ -1,6 +1,15 @@
 body{
   font: 14px Arial;
+  padding: .5em;
 }
+
+form {
+  display: grid;
+  grid-template-columns: auto 1fr 4fr;
+  grid-gap: 8px;
+  justify-items: start;
+}
+
 i {
   font: 12px Arial;
   font-style: italic;
