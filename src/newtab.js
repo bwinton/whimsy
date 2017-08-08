@@ -53,6 +53,12 @@ function loadTopSites(){
     node.parentNode.replaceChild(grid, node);
   }, onError)
   .then(initialize('https://bwinton.github.io/whimsy/thumbnail-gifs.txt', setThumbnail))
+  .then(initialize('https://bwinton.github.io/whimsy/urlbar-sayings.txt', setTitle));
+}
+
+function setTitle(placeholders) {
+  let rand = Math.floor(Math.random() * placeholders.length);
+  document.title = `New Tab: ${placeholders[rand]}`;
 }
 
 function setThumbnail(placeholders){
