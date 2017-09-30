@@ -197,7 +197,7 @@ http://i.imgur.com/CBP3qdO.gif
 https://dl.dropboxusercontent.com/u/7054348/hypnocat.gif
 http://img.gawkerassets.com/img/18jwg2yqfyjg4gif/ku-medium.gif
 http://i.imgur.com/k0ESvLQ.jpg
-https://people-mozilla.org/~smartell/meme/milton-stapler.gif
+# https://people-mozilla.org/~smartell/meme/milton-stapler.gif
 http://i.imgur.com/O9vu4XV.gif
 http://i.imgur.com/StFpJCY.gif
 http://i.imgur.com/nRGuj.gif
@@ -908,9 +908,9 @@ http://i.imgur.com/tVdttdG.gif
 http://i.imgur.com/arPNr.jpg
 https://lh6.googleusercontent.com/-VmP8eWMO-xw/UzjikagOPVI/AAAAAAAAhsk/s4AMNToTmPE/w822-h465-no/IMAG0002_BURST001-MOTION.gif
 http://f.cl.ly/items/2I1Z323M3x301z0o1Z0V/madhava3.gif
-https://people-mozilla.org/~smartell/australis/tab-ux-1.gif
-https://people-mozilla.org/~smartell/australis/tab-ux-2.gif
-https://people-mozilla.org/~smartell/australis/tab-ux-3.gif
+# https://people-mozilla.org/~smartell/australis/tab-ux-1.gif
+# https://people-mozilla.org/~smartell/australis/tab-ux-2.gif
+# https://people-mozilla.org/~smartell/australis/tab-ux-3.gif
 http://i.imgur.com/pzflXnp.gif
 https://i.imgur.com/ikIUgC7.gif
 
@@ -1533,6 +1533,7 @@ https://lh3.googleusercontent.com/D0BBMpP_3j49JKcA5_En6Wht4ndNdf4rYNZNp3aK7kvTT9
 https://lh5.googleusercontent.com/0QY-I_6Qm2trNOZ4pOHvBbvK6lSsOaLK2FYsR2TJ1XQoHFgL05AsBEY8mXeP8hJhM2MG4U08lr7yrtHLukGykS6UQM0GufeleDnZVdYj7Zn4BDED5y794Pscq8KflF-BrmqGmI_wk7k
 https://lh4.googleusercontent.com/sCXUo8dKg2fjJUCT_Mb7dABGJ0xCumkU-3dvBShCLeWdEM6yk-hFYGjVBsqXUNkv_Xj_Y7C1inxyQVmPkSwwUap659GLGCicNg6I8qwwPYih1-4ZKGYamB17SrBhhlY0mZh8vNLFSng
 http://i.imgur.com/V2uFgmS.gif
-https://people-mozilla.org/~smartell/fx/fox-ani-2.gif
+# https://people-mozilla.org/~smartell/fx/fox-ani-2.gif
 https://dl.dropboxusercontent.com/u/2301433/gifs/jdavidson.gif
 http://i.imgur.com/CWKNtbj.gif
+http://68.media.tumblr.com/8a62895e18540a85472da0cde1ee21b1/tumblr_n0fjpcEkAf1tooympo1_500.gif
