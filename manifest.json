@@ -13,7 +13,16 @@
     "48": "icon.png",
     "64": "icon64.png"
   },
-
+  "experiment_apis": {
+    "whimsyExp": {
+      "schema": "api/schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "script": "api/api.js",
+        "paths": [["whimsyExp"]]
+      }
+    }
+  },
   "applications": {
     "gecko": {
       "id": "jid1-6mUPixNFCjAgkg@jetpack"
