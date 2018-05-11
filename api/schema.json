@@ -1,0 +1,21 @@
+[
+  {
+    "namespace": "whimsyExp",
+    "description": "Whimsy WebExtension API Experiment Helper",
+    "functions": [
+      {
+        "name": "setNewtabOverride",
+        "type": "function",
+        "description": "Allows the newtab url to sometimes be overridden, requires an entry in chrome_url_overrides.newtab",
+        "async": true,
+        "parameters": [
+          {
+            "name": "shouldOverride",
+            "type": "boolean",
+            "description": "Whether to override the about:newtab page."
+          }
+        ]
+      }
+    ]
+  }
+]
