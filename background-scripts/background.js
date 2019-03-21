@@ -1,6 +1,6 @@
 function openPage(){
   browser.tabs.create({
-    url: "http://chilloutandwatchsomecatgifs.com/"
+    url: "https://chilloutandwatchsomecatgifs.github.io/"
   });
 }
 

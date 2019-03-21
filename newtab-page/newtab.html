@@ -4,50 +4,10 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
   <link rel="stylesheet" type="text/css" media="all" href="newtab-content.css" />
-  <link rel="stylesheet" type="text/css" media="all" href="newtab-skin.css" />
-  <style>
-    #newtab-grid {
-       max-width: 1470px;
-       max-height: 750px;
-    }
-
-    @media (max-width: 1180px) {
-      #newtab-grid { max-width: 890px; }
-    }
-    @media (max-width: 890px) {
-      #newtab-grid { max-width: 600px; }
-    }
-    @media (max-width: 600px) {
-      #newtab-grid { max-width: 310px; }
-    }
-
-    @media (max-height: 790px) {
-      #newtab-grid { max-height: 500px; }
-    }
-    @media (max-height: 540px) {
-      #newtab-grid { max-height: 250px; }
-    }
-
-    .newtab-cell {
-      margin: 20px 10px 20px;
-    }
-    .newtab-thumbnail.thumbnail {
-      background-size: cover;
-      background-position: center;
-      background-image: none;
-    }
-    body {
-      padding: 1em 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  </style>
 </head>
 
 <body xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
-  <div>
+  <div id="newtab-search-container">
     <iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo" style="display: block;overflow:hidden;margin: auto;padding:0;width:551px;height:40px;" frameborder="0"></iframe>
   </div>
   <div id="newtab-grid">

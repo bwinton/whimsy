@@ -26,13 +26,12 @@ function createElement(label, attrs, children=[]) {
 }
 
 function createTopSite(topSite) {
+  console.log("Topsite:", topSite.title || topSite.url, topSite);
   const rv = createElement('div', {'class': 'newtab-cell', 'contextmenu': 'context-menu'}, [
-    createElement('div', {'class': 'newtab-site', 'draggable': 'true', 'type': 'history'}, [
-      createElement('a', {'class': 'newtab-link', 'title': topSite.title, 'href':topSite.url}, [
-        createElement('span', {'class': 'newtab-thumbnail thumbnail'}),
-        createElement('span', {'class': 'newtab-title'}, [
-          document.createTextNode(topSite.title)
-        ])
+    createElement('a', {'class': 'newtab-link', 'title': topSite.title || '', 'href':topSite.url}, [
+      createElement('span', {'class': 'newtab-thumbnail thumbnail'}),
+      createElement('span', {'class': 'newtab-title'}, [
+        document.createTextNode(topSite.title || topSite.url)
       ])
     ])
   ]);
@@ -112,16 +111,19 @@ function setThumbnail(placeholders){
       let rand = Math.floor(Math.random() * placeholders.length);
       newImg.src = placeholders[rand];
       newImg.style.opacity = 0;
+      newImg.style.marginTop = "-180px";
       //set to paused gif
       var c = document.createElement('canvas');
       var width = c.width = newImg.width = 290;
       var height = c.height = newImg.height = 180;
       var freeze = function(){
         c.getContext('2d').drawImage(newImg,0,0,width,height);
-        c.style.position = 'absolute';
+        // c.style.position = 'absolute';
         newImg.parentNode.insertBefore(c, newImg);
       }
       newImg.addEventListener('load', freeze, true);
+      newImg.addEventListener("mouseover", onMouseOver);
+      newImg.addEventListener("mouseout", onMouseLeave);
     })
   } else if (pref == "off"){
     document.querySelectorAll(".newtab-link").forEach(function(link){
@@ -188,6 +190,7 @@ function createCanvas(href, link, img){
 
 function onMouseOver(e){
   //hide canvas/show gif
+  // console.log("Got over", e.target);
   var i = 1.0;
   var interval = setInterval(fade, 35);
   function fade(){

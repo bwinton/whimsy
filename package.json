@@ -1,13 +1,13 @@
 {
   "name": "whimsy",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "dependencies": {
     "tippy-top-sites": "1.2.2"
   },
   "scripts": {
     "build": "browserify src/newtab.js -o newtab-page/bundle.js && web-ext build -i src -i package*",
     "dev": "watchify src/newtab.js -o newtab-page/bundle.js && web-ext run -i src -i package*",
-    "start": "browserify src/newtab.js -o newtab-page/bundle.js && web-ext run -i src -i package*"
+    "start": "browserify src/newtab.js -o newtab-page/bundle.js && web-ext run -f nightly -i src -i package*"
   },
   "devDependencies": {
     "browserify": "14.4.0",
