@@ -5,3 +5,11 @@ profile.*
 images/
 .vscode
 node_modules
+
+
+#Added by cargo
+#
+#already existing elements are commented out
+
+/target
+**/*.rs.bk
